@@ -1,146 +1,162 @@
-/**
- * 
- */
+/** */
 package com.jp.stock.service.bo;
 
+import com.jp.stock.enums.TradeIndicator;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
-
-import com.jp.stock.enums.TradeIndicator;
-import com.jp.stock.service.bo.StockBO.StockBOBuilder;
-
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 /**
- * 
- * A business class representation for the trade record containing the trade information, like stock ,
- * time stamp, quantity of shares, buy or sell indicator and trading price.
- * 
+ * A business class representation for the trade record containing the trade information, like stock
+ * , time stamp, quantity of shares, buy or sell indicator and trading price.
+ *
  * @author chandresh.mishra
  */
 @ToString
-public class TradeBO  {
+public class TradeBO {
 
-	/** The stock symbol */
-	@Getter
-	@Setter
-	private String stockSymbol;
+  /** The stock symbol */
+  private String stockSymbol;
 
-	/** The quantify of this trade. */
-	@Getter
-	@Setter
-	private BigInteger quantity;
+  /** The quantify of this trade. */
+  private BigInteger quantity;
 
-	/** A buy/sell trade indicator. */
-	@Getter
-	@Setter
-	private TradeIndicator indicator;
+  /** A buy/sell trade indicator. */
+  private TradeIndicator indicator;
 
-	/** The trade price. */
-	@Getter
-	@Setter
-	private BigDecimal price;
-	
-	/** The time stamp of this trade. */
-	@Getter
-	@Setter
-	private LocalDateTime timestamp;
+  /** The trade price. */
+  private BigDecimal price;
 
-	public TradeBO(TradeBOBuilder builder)
-		{
-			this.stockSymbol=builder.stockSymbol;
-			this.quantity=builder.quantity;
-			this.indicator=builder.indicator;
-			this.price=builder.price;
-			this.timestamp=builder.timestamp;
-			
-		}
+  /** The time stamp of this trade. */
+  private LocalDateTime timestamp;
 
-	public TradeBO(){
-			 //default constructor called by the Mapper.
-		 }
+  public TradeBO(TradeBOBuilder builder) {
+    this.stockSymbol = builder.stockSymbol;
+    this.quantity = builder.quantity;
+    this.indicator = builder.indicator;
+    this.price = builder.price;
+    this.timestamp = builder.timestamp;
+  }
 
-	/** Builder pattern implementation to build StockBO object. */
-	  public static class TradeBOBuilder {
-		
-		  
-			private String stockSymbol;
-			private BigInteger quantity;
-			private TradeIndicator indicator;
-			private BigDecimal price;
-			private LocalDateTime timestamp;
-			
-			TradeBOBuilder(){}
-			
-			/**
-		     * Set stockSymbol
-		     *
-		     * @param stockSymbol stock symbol
-		     * @return TradeBOBuilder
-		     */
-		    public TradeBOBuilder stockSymbol(String stockSymbol) {
-		      this.stockSymbol = stockSymbol;
-		      return this;
-		    }
-		    
-		    /**
-		     * Set quantity
-		     *
-		     * @param quantity Trade quantity
-		     * @return TradeBOBuilder
-		     */
-		    public TradeBOBuilder quantity(BigInteger quantity) {
-		      this.quantity = quantity;
-		      return this;
-		    }
-		    
-		    /**
-		     * Set indicator
-		     *
-		     * @param indicator Trade indicator
-		     * @return TradeBOBuilder
-		     */
-		    public TradeBOBuilder indicator(TradeIndicator indicator) {
-		      this.indicator = indicator;
-		      return this;
-		    }
-		    
-		    
-		    /**
-		     * Set price
-		     *
-		     * @param price Trade price
-		     * @return TradeBOBuilder
-		     */
-		    public TradeBOBuilder price(BigDecimal price) {
-		      this.price = price;
-		      return this;
-		    }
-		   
-		    
-		    /**
-		     * Set price
-		     *
-		     * @param price Trade price
-		     * @return TradeBOBuilder
-		     */
-		    public TradeBOBuilder timeStamp(LocalDateTime timestamp) {
-		      this.timestamp = timestamp;
-		      return this;
-		    }
-		    
-		    /**
-		     * Build the TradeBO object by calling constructor in TradeBO class.
-		     *
-		     * @return TradeBO object.
-		     */
-		    public TradeBO build() {
+  public TradeBO() {
+    //default constructor called by the Mapper.
+  }
 
-		      return new TradeBO(this);
-		    }
-	  }
-	
+  /** Builder pattern implementation to build StockBO object. */
+  public static class TradeBOBuilder {
+
+    private String stockSymbol;
+    private BigInteger quantity;
+    private TradeIndicator indicator;
+    private BigDecimal price;
+    private LocalDateTime timestamp;
+
+    TradeBOBuilder() {}
+
+    /**
+     * Set stockSymbol
+     *
+     * @param stockSymbol stock symbol
+     * @return TradeBOBuilder
+     */
+    public TradeBOBuilder stockSymbol(String stockSymbol) {
+      this.stockSymbol = stockSymbol;
+      return this;
+    }
+
+    /**
+     * Set quantity
+     *
+     * @param quantity Trade quantity
+     * @return TradeBOBuilder
+     */
+    public TradeBOBuilder quantity(BigInteger quantity) {
+      this.quantity = quantity;
+      return this;
+    }
+
+    /**
+     * Set indicator
+     *
+     * @param indicator Trade indicator
+     * @return TradeBOBuilder
+     */
+    public TradeBOBuilder indicator(TradeIndicator indicator) {
+      this.indicator = indicator;
+      return this;
+    }
+
+    /**
+     * Set price
+     *
+     * @param price Trade price
+     * @return TradeBOBuilder
+     */
+    public TradeBOBuilder price(BigDecimal price) {
+      this.price = price;
+      return this;
+    }
+
+    /**
+     * Set price
+     *
+     * @param price Trade price
+     * @return TradeBOBuilder
+     */
+    public TradeBOBuilder timeStamp(LocalDateTime timestamp) {
+      this.timestamp = timestamp;
+      return this;
+    }
+
+    /**
+     * Build the TradeBO object by calling constructor in TradeBO class.
+     *
+     * @return TradeBO object.
+     */
+    public TradeBO build() {
+
+      return new TradeBO(this);
+    }
+  }
+
+  public BigDecimal getPrice() {
+    return price;
+  }
+
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
+
+  public String getStockSymbol() {
+    return stockSymbol;
+  }
+
+  public void setStockSymbol(String stockSymbol) {
+    this.stockSymbol = stockSymbol;
+  }
+
+  public BigInteger getQuantity() {
+    return quantity;
+  }
+
+  public void setQuantity(BigInteger quantity) {
+    this.quantity = quantity;
+  }
+
+  public TradeIndicator getIndicator() {
+    return indicator;
+  }
+
+  public void setIndicator(TradeIndicator indicator) {
+    this.indicator = indicator;
+  }
+
+  public LocalDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(LocalDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
 }

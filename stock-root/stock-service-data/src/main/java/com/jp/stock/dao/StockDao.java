@@ -1,31 +1,24 @@
-/**
- * 
- */
+/** */
 package com.jp.stock.dao;
 
+import com.jp.stock.entity.Stock;
+import org.springframework.data.gemfire.repository.query.annotation.Trace;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.jp.stock.entity.Stock;
-
 /**
- * It performs the CRUD operation on Stock region by extending Spring data
- * CrudRepository
- * 
+ * It performs the CRUD operation on Stock region by extending Spring data CrudRepository
+ *
  * @author chandresh.mishra
- * 
  */
 @Repository
 public interface StockDao extends CrudRepository<Stock, String> {
 
-	/**
-	 * Saves stock record in gemfire region
-	 */
-	public Stock save(Stock stock);
+  /** Saves stock record in gemfire region */
+  @Trace
+  public Stock save(Stock stock);
 
-	/**
-	 * Finds the record with the given stock symbol/Key
-	 */
-	public Stock findOne(String symbol);
-
+  /** Finds the record with the given stock symbol/Key */
+  @Trace
+  public Stock findOne(String symbol);
 }

@@ -10,7 +10,15 @@ buildscript {
 	}
 }
 
-
+repositories {
+    maven  {
+        url "http://repo.spring.io/libs-snapshot"
+    }
+    
+     maven  {
+        url "http://dist.gemstone.com/maven/release"
+    }
+}
 //apply plugin: 'java'
 //apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -24,9 +32,15 @@ dependencies {
 	}
     compile('io.springfox:springfox-swagger-ui:2.6.1')
   // https://mvnrepository.com/artifact/io.swagger/swagger-annotations
-compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.0'
+//compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.0'
   
     
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile group: 'com.gemstone.gemfire', name: 'gemfire', version: '8.2.8'
+	compile group: 'org.springframework.data', name: 'spring-data-gemfire', version: '1.9.10.RELEASE'
 }
+configurations {
+	compile.exclude module: 'spring-boot-starter-logging'
+}
+sourceSets.main.java.srcDir new File("${buildDir}/generated/source/apt/main")

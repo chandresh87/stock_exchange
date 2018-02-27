@@ -25,7 +25,8 @@ public class SwaggerConfig {
   @Bean
   public Docket api() {
     final Contact contact =
-        new Contact("simple stock exchange", "https://www.jpmorgan.com/", "media.requests@jpmorgan.com");
+        new Contact(
+            "simple stock exchange", "https://www.jpmorgan.com/", "media.requests@jpmorgan.com");
     final ApiInfo info =
         new ApiInfoBuilder()
             .title("Exchange API")

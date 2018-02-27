@@ -27,7 +27,7 @@
  <Loggers>
 		
 		 <logger name="org.springframework.core.env.StandardEnvironment">
-           <appender-ref ref="fileLogger" level="info" />
+           <appender-ref ref="console" level="info" />
         </logger>
         
 		<Root level="debug" additivity="false">

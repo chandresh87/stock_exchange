@@ -12,7 +12,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @author chandresh.mishra
  */
 @Configuration
-@ComponentScan(value = {"com.jp.stock.api.controller", "com.jp.stock.api.advice"})
+@ComponentScan(
+  value = {"com.jp.stock.api.controller", "com.jp.stock.api.advice", "com.jp.stock.api.mapper"}
+)
 @Import(value = {SwaggerConfig.class})
 public class ApiConfig extends WebMvcConfigurerAdapter {
 

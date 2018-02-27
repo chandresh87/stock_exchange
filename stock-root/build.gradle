@@ -7,6 +7,7 @@ buildscript {
 	}
 	dependencies {
 		classpath 'io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE'
+		
 	}
 }
 
@@ -20,13 +21,27 @@ lombok {
 	version = "1.16.20"
 	sha256 = ""
 }
+
+
 allprojects  {
  
 group = 'com.jp.stock'
 version = '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+
+
+
 }
 
 apply plugin: 'eclipse-wtp'
+apply plugin: 'java'
+  
+  repositories {
+   mavenCentral()
+    }
+  
+  
   
 subprojects {
   apply plugin: 'java'
@@ -41,15 +56,22 @@ subprojects {
   repositories {
    mavenCentral()
     }
-    
+   
     dependencies {
          testCompile 'org.mockito:mockito-core:2.7.22'
         testCompile 'org.springframework.boot:spring-boot-starter-test'
 		 testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
 		compile 'org.mapstruct:mapstruct-jdk8:1.1.0.Final'
 	    apt 'org.mapstruct:mapstruct-processor:1.1.0.Final'
+	    
 	}
+
 }
+
+
+
+
+
 
 /*dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-log4j2'

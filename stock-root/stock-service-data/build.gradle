@@ -18,9 +18,9 @@ dependencies {
 	apt 'org.mapstruct:mapstruct-processor'
 	
 	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-gemfire
-compile group: 'org.springframework.data', name: 'spring-data-gemfire', version: '1.7.4.RELEASE'
+compile group: 'org.springframework.data', name: 'spring-data-gemfire', version: '1.9.10.RELEASE'
 // https://mvnrepository.com/artifact/com.gemstone.gemfire/gemfire
-compile group: 'com.gemstone.gemfire', name: 'gemfire', version: '7.0.1'
+compile group: 'com.gemstone.gemfire', name: 'gemfire', version: '8.2.8'
 	
 	//compile('org.springframework.data:spring-boot-starter-data-gemfire')
 	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
@@ -32,5 +32,5 @@ jar {
 	manifest {
 		attributes('BaseName': 'stock-service-data', 'Version': version)
 	}
-}	
-	
+}
+
