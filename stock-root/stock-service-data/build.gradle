@@ -1,0 +1,36 @@
+
+sourceSets.main.java.srcDir new File("${buildDir}/generated/source/apt/main")
+
+
+repositories {
+    maven  {
+        url "http://repo.spring.io/libs-snapshot"
+    }
+    
+     maven  {
+        url "http://dist.gemstone.com/maven/release"
+    }
+}
+dependencies {
+
+	compile project(':stock-app')
+	compile 'org.mapstruct:mapstruct-jdk8'
+	apt 'org.mapstruct:mapstruct-processor'
+	
+	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-gemfire
+compile group: 'org.springframework.data', name: 'spring-data-gemfire', version: '1.7.4.RELEASE'
+// https://mvnrepository.com/artifact/com.gemstone.gemfire/gemfire
+compile group: 'com.gemstone.gemfire', name: 'gemfire', version: '7.0.1'
+	
+	//compile('org.springframework.data:spring-boot-starter-data-gemfire')
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+	compile "org.apache.poi:poi-ooxml:3.9"
+	}
+	
+jar {
+	manifest {
+		attributes('BaseName': 'stock-service-data', 'Version': version)
+	}
+}	
+	
