@@ -7,6 +7,11 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.ResponseEntity;
 
+/**
+ * Trade REST Controller Interface.
+ *
+ * @author chandresh.mishra
+ */
 @Api(tags = {"Trade Operations"})
 public interface TradeAPI {
 

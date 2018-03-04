@@ -7,14 +7,12 @@ import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.validation.constraints.NotNull;
-import lombok.ToString;
 
 /**
- * Trade model to hold the trade data.
+ * Trade model to hold the trade request input data.
  *
  * @author chandresh.mishra
  */
-@ToString
 public class TradeModel {
 
   /** The stock symbol */
@@ -74,5 +72,21 @@ public class TradeModel {
 
   public void setPrice(BigDecimal price) {
     this.price = price;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder
+        .append("TradeModel [stockSymbol=")
+        .append(stockSymbol)
+        .append(", quantity=")
+        .append(quantity)
+        .append(", indicator=")
+        .append(indicator)
+        .append(", price=")
+        .append(price)
+        .append("]");
+    return builder.toString();
   }
 }

@@ -3,10 +3,13 @@ package com.jp.stock.remote.dto;
 
 import com.jp.stock.enums.StockType;
 import java.math.BigDecimal;
-import lombok.ToString;
 
-/** @author chandresh.mishra */
-@ToString
+/**
+ * This class act as a data transfer object for the remote operation of loading the Global Beverage
+ * Corporation Exchange data into the simple stock application.
+ *
+ * @author chandresh.mishra
+ */
 public class StockDTO {
 
   /** The stock symbol */
@@ -73,5 +76,25 @@ public class StockDTO {
 
   public void setFixedDividend(BigDecimal fixedDividend) {
     this.fixedDividend = fixedDividend;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder
+        .append("StockDTO [stockSymbol=")
+        .append(stockSymbol)
+        .append(", lastDividend=")
+        .append(lastDividend)
+        .append(", parValue=")
+        .append(parValue)
+        .append(", price=")
+        .append(price)
+        .append(", stockType=")
+        .append(stockType)
+        .append(", fixedDividend=")
+        .append(fixedDividend)
+        .append("]");
+    return builder.toString();
   }
 }

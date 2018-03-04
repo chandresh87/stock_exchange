@@ -1,4 +1,3 @@
-/** */
 package com.jp.stock.dao;
 
 import com.jp.stock.entity.Stock;
@@ -16,10 +15,11 @@ import org.springframework.stereotype.Repository;
 public interface StockDao extends CrudRepository<Stock, String> {
 
   /** Saves stock record in gemfire region */
+  @SuppressWarnings("unchecked")
   @Trace
   public Stock save(Stock stock);
 
-  /** Finds the record with the given stock symbol/Key */
+  /** Finds the record with the given stock symbol Key */
   @Trace
   public Optional<Stock> findById(String symbol);
 }

@@ -3,14 +3,12 @@ package com.jp.stock.service.bo;
 
 import com.jp.stock.enums.StockType;
 import java.math.BigDecimal;
-import lombok.ToString;
 
 /**
  * Stock business class to apply business logic on stock.
  *
  * @author chandresh.mishra
  */
-@ToString
 public class StockBO {
 
   /** The stock symbol */
@@ -28,7 +26,7 @@ public class StockBO {
   /** The Type of this stock. */
   private StockType stockType;
 
-  /** The last dividend value */
+  /** The fixed dividend value */
   private BigDecimal fixedDividend;
 
   public StockBO(StockBOBuilder builder) {
@@ -54,7 +52,9 @@ public class StockBO {
     private StockType stockType;
     private BigDecimal fixedDividend;
 
-    public StockBOBuilder() {}
+    public StockBOBuilder() {
+      //default constructor
+    }
 
     /**
      * Set stockSymbol
@@ -179,5 +179,25 @@ public class StockBO {
 
   public void setFixedDividend(BigDecimal fixedDividend) {
     this.fixedDividend = fixedDividend;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder
+        .append("StockBO [stockSymbol=")
+        .append(stockSymbol)
+        .append(", lastDividend=")
+        .append(lastDividend)
+        .append(", parValue=")
+        .append(parValue)
+        .append(", price=")
+        .append(price)
+        .append(", stockType=")
+        .append(stockType)
+        .append(", fixedDividend=")
+        .append(fixedDividend)
+        .append("]");
+    return builder.toString();
   }
 }

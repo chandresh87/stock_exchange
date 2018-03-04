@@ -70,7 +70,7 @@ public interface StockService {
   }
 
   /**
-   * Validates the given value is a positive.
+   * Utility method to validates the given value is a positive.
    *
    * @param value the value to be checked
    */
@@ -84,10 +84,5 @@ public interface StockService {
                     BusinessErrorCode.JP003B.getId(),
                     BusinessErrorCode.JP003B.getDescription(),
                     new Throwable(StockServiceConstants.FOUND_NON_POSITIVE_VALUE + value)));
-
-    /*if (value == null || BigDecimal.ZERO.compareTo(value) >= 0) {
-    	throw new StockMarketServiceException("Found non-positive value: "
-    			+ value);
-    }*/
   }
 }

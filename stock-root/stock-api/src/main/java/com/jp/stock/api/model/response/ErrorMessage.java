@@ -1,16 +1,13 @@
-/** */
 package com.jp.stock.api.model.response;
 
 import java.io.Serializable;
 import java.util.List;
-import lombok.ToString;
 
 /**
  * Error message class to be used for API response.
  *
  * @author chandresh.mishra
  */
-@ToString
 public class ErrorMessage implements Serializable {
 
   private static final long serialVersionUID = -1L;

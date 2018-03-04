@@ -2,19 +2,17 @@
 package com.jp.stock.entity;
 
 import java.io.Serializable;
-import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.gemfire.mapping.annotation.Region;
 
 /**
- * This class holds the unique sequence data for the UniqueSequence Gemfire region. The unique value
- * is used as a trade key.
+ * UniqueSequence entity class holds the unique sequence data for the UniqueSequence Gemfire region.
+ * The unique value is used as a trade primary key.
  *
  * @author chandresh.mishra
  */
 @Region("UniqueSequence")
-@ToString
 public class UniqueSequence implements Serializable {
 
   private static final long serialVersionUID = 3209342518270638003L;
@@ -44,5 +42,12 @@ public class UniqueSequence implements Serializable {
 
   public void setValue(Integer value) {
     this.value = value;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder.append("UniqueSequence [id=").append(id).append(", value=").append(value).append("]");
+    return builder.toString();
   }
 }

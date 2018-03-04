@@ -1,4 +1,3 @@
-/** */
 package com.jp.stock.service;
 
 import com.jp.stock.service.constant.StockServiceConstants;
@@ -22,7 +21,7 @@ public interface TradeService {
   public BigDecimal calculateGBCEAllShareIndex();
 
   /**
-   * Validates the given value is a positive.
+   * Utility method to validates the given value is a positive.
    *
    * @param value the value to be checked
    */
@@ -36,10 +35,5 @@ public interface TradeService {
                     BusinessErrorCode.JP003B.getId(),
                     BusinessErrorCode.JP003B.getDescription(),
                     new Throwable(StockServiceConstants.FOUND_NON_POSITIVE_VALUE + value)));
-
-    /*if (value == null || BigDecimal.ZERO.compareTo(value) >= 0) {
-    	throw new StockMarketServiceException("Found non-positive value: "
-    			+ value);
-    }*/
   }
 }

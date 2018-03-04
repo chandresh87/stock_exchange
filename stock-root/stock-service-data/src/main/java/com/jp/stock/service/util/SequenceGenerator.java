@@ -17,7 +17,7 @@ public class SequenceGenerator {
   /** Autowired uniqueSequence database service */
   @Autowired UniqueSequenceDao uniqueSequenceDao;
 
-  /** @return int The unique sequence starting from 1 */
+  /** @return The unique sequence starting from 1 */
   public int getUniqueSequence() {
 
     UniqueSequence currentSequence = uniqueSequenceDao.findById(1).orElseGet(() -> buildSequence());
@@ -29,7 +29,7 @@ public class SequenceGenerator {
     return value;
   }
 
-  UniqueSequence buildSequence() {
+  private UniqueSequence buildSequence() {
     UniqueSequence sequence = new UniqueSequence(1, 1);
     uniqueSequenceDao.save(sequence);
     return sequence;

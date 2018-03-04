@@ -1,23 +1,20 @@
-/** */
 package com.jp.stock.entity;
 
 import com.jp.stock.enums.StockType;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.gemfire.mapping.annotation.Region;
 
 /**
- * Stock class to hold the stock data in Gemfire.
+ * Stock entity to hold the stock data in Gemfire.
  *
  * @author chandresh.mishra
  */
 
 /** Representing the Stock region in Gemfire */
 @Region("Stock")
-@ToString
 public class Stock implements Serializable {
 
   private static final long serialVersionUID = 3209342518270638000L;
@@ -63,6 +60,28 @@ public class Stock implements Serializable {
 
   public Stock() {}
 
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((stockType == null) ? 0 : stockType.hashCode());
+    result = prime * result + ((symbol == null) ? 0 : symbol.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null) return false;
+    if (!(obj instanceof Stock)) return false;
+    Stock other = (Stock) obj;
+    if (stockType != other.stockType) return false;
+    if (symbol == null) {
+      if (other.symbol != null) return false;
+    } else if (!symbol.equals(other.symbol)) return false;
+    return true;
+  }
+
   public String getSymbol() {
     return symbol;
   }
@@ -101,5 +120,23 @@ public class Stock implements Serializable {
 
   public void setFixedDividend(BigDecimal fixedDividend) {
     this.fixedDividend = fixedDividend;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder
+        .append("Stock [symbol=")
+        .append(symbol)
+        .append(", lastDividend=")
+        .append(lastDividend)
+        .append(", parValue=")
+        .append(parValue)
+        .append(", stockType=")
+        .append(stockType)
+        .append(", fixedDividend=")
+        .append(fixedDividend)
+        .append("]");
+    return builder.toString();
   }
 }

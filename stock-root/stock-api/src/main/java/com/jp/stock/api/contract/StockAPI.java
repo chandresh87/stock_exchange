@@ -2,10 +2,18 @@ package com.jp.stock.api.contract;
 
 import com.jp.stock.api.model.request.TradeModel;
 import com.jp.stock.api.model.response.Message;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import java.math.BigDecimal;
 import org.springframework.http.ResponseEntity;
 
+/**
+ * Stock REST Controller Interface.
+ *
+ * @author chandresh.mishra
+ */
 @Api(tags = {"Stock Operations"})
 public interface StockAPI {
 

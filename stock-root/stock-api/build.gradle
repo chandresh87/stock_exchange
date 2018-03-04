@@ -10,43 +10,28 @@ buildscript {
 		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
 	}
 }
-
 repositories {
     maven  {
         url "http://repo.spring.io/libs-snapshot"
     }
-    
      maven  {
         url "http://dist.gemstone.com/maven/release"
-    }
-}
-//apply plugin: 'java'
-//apply plugin: 'eclipse'
+   }}
+
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 dependencies {
 
     compile project(':stock-service-data'), project(':stock-app')
-    
     compile('io.springfox:springfox-swagger2:2.6.1') {
 		exclude group: 'org.mapstruct'
 	}
-    compile('io.springfox:springfox-swagger-ui:2.6.1')
-  // https://mvnrepository.com/artifact/io.swagger/swagger-annotations
-//compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.0'
-  
-    
-	//compile('org.springframework.boot:spring-boot-starter-actuator')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	
-	//compile('org.springframework.boot:spring-boot-starter-data-gemfire')
-	
+	compile('org.springframework.boot:spring-boot-starter-web')	
 }
 configurations {
 	compile.exclude module: 'spring-boot-starter-logging'
 }
-
 
 jar.enabled = true 	
 bootJar {

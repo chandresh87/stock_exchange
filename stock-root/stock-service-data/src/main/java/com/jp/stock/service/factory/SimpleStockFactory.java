@@ -1,4 +1,3 @@
-/** */
 package com.jp.stock.service.factory;
 
 import com.jp.stock.service.StockService;
@@ -12,21 +11,20 @@ import org.springframework.beans.factory.annotation.Autowired;
  * through this factory. It is implemented as a singleton, following the singleton pattern proposed
  * by Bill Pugh.
  *
+ * <p>In this implementation it uses autowiring of the services and return the autowired instance
+ * but can be changed any time to return any implementation of services with out effecting the other
+ * layers.
+ *
  * @author chandresh.mishra
  */
 public class SimpleStockFactory {
-
-  /** Load the spring context for the Application */
-  //SpringService springService = SpringService.getInstance();
 
   @Autowired private StockService stockService;
 
   @Autowired private TradeService tradeService;
 
   /** Private constructor for the factory which prevents new instance */
-  private SimpleStockFactory() {
-    //springService.getBean(LoadExchangeData.class);
-  }
+  private SimpleStockFactory() {}
 
   /**
    * Holder class for the singleton factory instance. It is loaded on the first execution of
@@ -47,24 +45,20 @@ public class SimpleStockFactory {
   }
 
   /**
-   * Gets the instance StockQuery through SimpleStockFactory instance
+   * Gets the instance StockService through SimpleStockFactory instance
    *
-   * @return An object of the StockQuery service
+   * @return An object of the StockService
    */
   public StockService getStockService() {
     return stockService;
-
-    //springService.getBean(StockService.class);
   }
 
   /**
-   * Gets the instance TradeQuery through SimpleStockFactory instance
+   * Gets the instance of tradeService through SimpleStockFactory instance
    *
-   * @return An object of the TradeQuery service
+   * @return An object of the tradeService
    */
   public TradeService getTradeService() {
     return tradeService;
-
-    //springService.getBean(TradeService.class);
   }
 }

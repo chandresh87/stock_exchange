@@ -1,4 +1,3 @@
-/** */
 package com.jp.stock.service.exception;
 
 /**
@@ -10,7 +9,7 @@ public class StockMarketServiceException extends RuntimeException {
 
   private static final long serialVersionUID = 1381320130022416598L;
 
-  private String code;
+  private final String code;
 
   /**
    * Constructs exception with code, message and cause.

@@ -1,4 +1,3 @@
-/** */
 package com.jp.stock.dao;
 
 import com.jp.stock.entity.Trade;
@@ -22,7 +21,8 @@ public interface TradeDao extends CrudRepository<Trade, Integer> {
   public Trade save(Trade trade);
 
   /**
-   * Get the all the trade record for a given stock symbol in last 15 min from gemfire Trade region
+   * Get the all the trade record for a given stock symbol in last 15 minute from gemfire Trade
+   * region
    */
   @Trace
   public List<Trade> findByStockSymbolAndTradeTimestampGreaterThanEqual(
@@ -32,6 +32,7 @@ public interface TradeDao extends CrudRepository<Trade, Integer> {
   @Trace
   public List<Trade> findAll();
 
+  /** Default method wrapping findByStockSymbolAndTradeTimestampGreaterThanEqual for convenience */
   default List<Trade> getTradeCollectionByTime(String stock, LocalDateTime dateTime) {
     return findByStockSymbolAndTradeTimestampGreaterThanEqual(stock, dateTime);
   }

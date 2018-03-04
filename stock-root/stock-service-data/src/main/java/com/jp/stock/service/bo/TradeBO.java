@@ -5,15 +5,12 @@ import com.jp.stock.enums.TradeIndicator;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
-import lombok.ToString;
 
 /**
- * A business class representation for the trade record containing the trade information, like stock
- * , time stamp, quantity of shares, buy or sell indicator and trading price.
+ * A business class representation for the trade
  *
  * @author chandresh.mishra
  */
-@ToString
 public class TradeBO {
 
   /** The stock symbol */
@@ -43,7 +40,7 @@ public class TradeBO {
     //default constructor called by the Mapper.
   }
 
-  /** Builder pattern implementation to build StockBO object. */
+  /** Builder pattern implementation to build TradeBO object. */
   public static class TradeBOBuilder {
 
     private String stockSymbol;
@@ -52,7 +49,10 @@ public class TradeBO {
     private BigDecimal price;
     private LocalDateTime timestamp;
 
-    public TradeBOBuilder() {}
+    public TradeBOBuilder() {
+
+      //default constructor
+    }
 
     /**
      * Set stockSymbol
@@ -101,7 +101,7 @@ public class TradeBO {
     /**
      * Set price
      *
-     * @param price Trade price
+     * @param price Trade timeStamp
      * @return TradeBOBuilder
      */
     public TradeBOBuilder timeStamp(LocalDateTime timestamp) {
@@ -158,5 +158,23 @@ public class TradeBO {
 
   public void setTimestamp(LocalDateTime timestamp) {
     this.timestamp = timestamp;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder
+        .append("TradeBO [stockSymbol=")
+        .append(stockSymbol)
+        .append(", quantity=")
+        .append(quantity)
+        .append(", indicator=")
+        .append(indicator)
+        .append(", price=")
+        .append(price)
+        .append(", timestamp=")
+        .append(timestamp)
+        .append("]");
+    return builder.toString();
   }
 }

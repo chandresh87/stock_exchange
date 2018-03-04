@@ -30,7 +30,7 @@ testSets {
 }
 
 tasks.withType(Test) {
-    reports.html.destination = file('reporting.baseDir/stock')
+    reports.html.destination = file('reporting/stock')
 }
 
 check.dependsOn integrationTest
@@ -40,16 +40,11 @@ dependencies {
 	compile project(':stock-api'), project(':stock-service-data')
 	
 	compile 'org.springframework.boot:spring-boot-starter-test'
-	//compile 'com.github.tomakehurst:wiremock-standalone:2.6.0'
-
-	//testCompile 'com.h2database:h2:1.4.195'
-
-  compile("org.springframework.data:spring-data-gemfire")
-  compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.10.0'
-compile group: 'org.apache.logging.log4j', name: 'log4j-jcl', version: '2.10.0'
-  testCompile  'com.jayway.jsonpath:json-path:2.0.0'
-  testCompile 'org.skyscreamer:jsonassert'
-
+    compile("org.springframework.data:spring-data-gemfire")
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.10.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-jcl', version: '2.10.0'
+    testCompile  'com.jayway.jsonpath:json-path:2.0.0'
+    testCompile 'org.skyscreamer:jsonassert'
 }
 
 integrationTest {

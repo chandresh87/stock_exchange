@@ -14,10 +14,4 @@ public enum StockType {
    * Indicates that a stock is preferred and the dividend yield is calculated with fixed dividend.
    */
   PREFERRED;
-
-  private String value;
-
-  public String getValue() {
-    return value;
-  }
 }

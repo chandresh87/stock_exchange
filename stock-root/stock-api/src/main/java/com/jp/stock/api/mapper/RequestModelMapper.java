@@ -1,12 +1,14 @@
 /** */
 package com.jp.stock.api.mapper;
 
-import com.jp.stock.api.model.request.TradeIndicator;
 import com.jp.stock.api.model.request.TradeModel;
 import com.jp.stock.service.bo.TradeBO;
-import org.mapstruct.*;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 import org.mapstruct.ReportingPolicy;
+import org.mapstruct.ValueMapping;
+import org.mapstruct.ValueMappings;
 
 /**
  * Mapper to map model and BO.

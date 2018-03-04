@@ -20,7 +20,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
-/** @author chandresh.mishra */
+/**
+ * Test class for the SimpleTradeService
+ *
+ * @author chandresh.mishra
+ */
 @RunWith(SpringRunner.class)
 public class SimpleTradeServiceTest {
 
@@ -41,7 +45,9 @@ public class SimpleTradeServiceTest {
     tradeBOList.add(TestServiceData.getTradeBO().build());
     tradeBOList.add(TestServiceData.getTradeBO().price(new BigDecimal(200)).build());
 
+    //Mocking trade mapper
     when(this.tradeMapper.tradeListToTradeBOList(any(List.class))).thenReturn(tradeBOList);
+    //Mocking trade dao
     when(this.tradeDao.findAll()).thenReturn(tradeList);
 
     BigDecimal geometricMean = tradeService.calculateGBCEAllShareIndex();

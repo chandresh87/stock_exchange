@@ -10,7 +10,11 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.ReportingPolicy;
 
-/** @author chandresh.mishra */
+/**
+ * It implements the mapping between stock entity and stock business object.
+ *
+ * @author chandresh.mishra
+ */
 @Mapper(componentModel = "Spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface StockMapper {
 

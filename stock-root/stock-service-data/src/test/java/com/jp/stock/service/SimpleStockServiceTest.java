@@ -25,7 +25,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
-/** @author chandresh.mishra */
+/**
+ * Test class for the SimpleStockService
+ *
+ * @author chandresh.mishra
+ */
 @RunWith(SpringRunner.class)
 public class SimpleStockServiceTest {
 
@@ -43,9 +47,10 @@ public class SimpleStockServiceTest {
 
   @Test
   public void getCommonDividendYieldTest() {
-    //Mocking
+    //Mocking stock dao
     when(this.stockDao.findById(any(String.class))).thenReturn(TestServiceData.getCommonStock());
 
+    //Mocking stock mapper
     when(this.stockMapper.stockToStockBO(any(Stock.class)))
         .thenReturn(TestServiceData.getCommonStockBO().build());
 
@@ -55,9 +60,10 @@ public class SimpleStockServiceTest {
 
   @Test
   public void getPreferredDividendYieldTest() {
-    //Mocking
+    //Mocking stock dao
     when(this.stockDao.findById(any(String.class))).thenReturn(TestServiceData.getPreferredStock());
 
+    //Mocking stock mapper
     when(this.stockMapper.stockToStockBO(any(Stock.class)))
         .thenReturn(TestServiceData.getPreferredStockBO().build());
 
@@ -69,7 +75,7 @@ public class SimpleStockServiceTest {
   public void getDividendYieldExceptionTest() {
     //Mocking
     when(this.stockDao.findById(any(String.class))).thenReturn(TestServiceData.getCommonStock());
-
+    //Mocking stock mapper
     when(this.stockMapper.stockToStockBO(any(Stock.class)))
         .thenReturn(TestServiceData.getCommonStockBO().build());
 
@@ -79,9 +85,9 @@ public class SimpleStockServiceTest {
 
   @Test
   public void getPERatioTest() {
-    //Mocking
+    //Mocking stock dao
     when(this.stockDao.findById(any(String.class))).thenReturn(TestServiceData.getPreferredStock());
-
+    //Mocking stock mapper
     when(this.stockMapper.stockToStockBO(any(Stock.class)))
         .thenReturn(TestServiceData.getPreferredStockBO().build());
 
@@ -91,10 +97,15 @@ public class SimpleStockServiceTest {
 
   @Test
   public void saveTradeTest() {
+    //Mocking stock dao
     when(this.stockDao.findById(any(String.class))).thenReturn(TestServiceData.getCommonStock());
+    //Mocking trade mapper
     when(this.tradeMapper.tradeBOToTrade(any(TradeBO.class)))
         .thenReturn(TestServiceData.getTrade());
+
+    //Mocking unique sequence dao
     when(this.generateUniqueSequence.getUniqueSequence()).thenReturn(1);
+    //Mocking trade dao
     when(this.tradeDao.save(any(Trade.class))).thenReturn(TestServiceData.getTrade());
 
     stockService.recordTrade(TestServiceData.getTradeBO().build());
@@ -122,8 +133,10 @@ public class SimpleStockServiceTest {
     tradeBOList.add(TestServiceData.getTradeBO().build());
     tradeBOList.add(TestServiceData.getTradeBO().price(new BigDecimal(200)).build());
 
+    //Mocking trade dao
     when(this.tradeDao.getTradeCollectionByTime(any(String.class), any(LocalDateTime.class)))
         .thenReturn(tradeList);
+    //Mocking trade mapper
     when(this.tradeMapper.tradeListToTradeBOList(any(List.class))).thenReturn(tradeBOList);
 
     BigDecimal volumeWeightedStockPrice = stockService.getVolumeWeightedStockPrice("TEA");

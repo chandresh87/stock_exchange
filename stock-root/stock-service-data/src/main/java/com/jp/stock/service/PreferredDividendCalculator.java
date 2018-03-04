@@ -11,6 +11,12 @@ import java.math.BigDecimal;
  */
 public class PreferredDividendCalculator implements DividendCalculator {
 
+  /**
+   * calculate the dividend for the Preferred stock
+   *
+   * @see com.jp.stock.service.DividendCalculator#calculate(com.jp.stock.service.bo.StockBO,
+   *     java.math.BigDecimal)
+   */
   @Override
   public BigDecimal calculate(StockBO stock, BigDecimal price) {
 

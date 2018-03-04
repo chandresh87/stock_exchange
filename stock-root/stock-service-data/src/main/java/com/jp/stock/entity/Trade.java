@@ -1,4 +1,3 @@
-/** */
 package com.jp.stock.entity;
 
 import com.jp.stock.enums.TradeIndicator;
@@ -6,7 +5,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
-import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.gemfire.mapping.annotation.Region;
@@ -22,7 +20,6 @@ import org.springframework.data.gemfire.mapping.annotation.Region;
 
 /** Representing the Stock region in Gemfire */
 @Region("Trade")
-@ToString
 public class Trade implements Serializable {
 
   private static final long serialVersionUID = 3209342518270638001L;
@@ -36,7 +33,7 @@ public class Trade implements Serializable {
   /** The time stamp of this trade. */
   private LocalDateTime tradeTimestamp;
 
-  /** The quantify of this trade. */
+  /** The quantity of this trade. */
   private BigInteger quantity;
 
   /** A buy/sell trade indicator. */
@@ -146,5 +143,25 @@ public class Trade implements Serializable {
 
   public void setPrice(BigDecimal price) {
     this.price = price;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder
+        .append("Trade [tradeIdentifier=")
+        .append(tradeIdentifier)
+        .append(", stock=")
+        .append(stock)
+        .append(", tradeTimestamp=")
+        .append(tradeTimestamp)
+        .append(", quantity=")
+        .append(quantity)
+        .append(", indicator=")
+        .append(indicator)
+        .append(", price=")
+        .append(price)
+        .append("]");
+    return builder.toString();
   }
 }

@@ -14,7 +14,11 @@ import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-/** @author chandresh.mishra */
+/**
+ * This class provide the sample test data.
+ *
+ * @author chandresh.mishra
+ */
 public class TestServiceData {
 
   public static Optional<Stock> getCommonStock() {

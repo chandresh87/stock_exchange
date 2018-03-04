@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * configuration for service
+ * configuration for the services
  *
  * @author chandresh.mishra
  */
@@ -16,12 +16,6 @@ import org.springframework.context.annotation.Configuration;
   value = {"com.jp.stock.service", "com.jp.stock.service.mapper", "com.jp.stock.remote"}
 )
 public class ServiceConfig {
-
-  // bean used to for getting the values from the property file
-  //  @Bean
-  //  public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-  //    return new PropertySourcesPlaceholderConfigurer();
-  //  }
 
   @Bean(name = "SimpleStockFactory")
   public SimpleStockFactory stockFactory() {

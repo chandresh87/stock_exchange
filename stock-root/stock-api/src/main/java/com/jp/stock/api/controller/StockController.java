@@ -19,7 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-/** @author chandresh.mishra */
+/**
+ * Stock controller handling all api calls
+ *
+ * @author chandresh.mishra
+ */
 @RestController
 @RequestMapping("/stock")
 public class StockController implements StockAPI {

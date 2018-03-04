@@ -2,10 +2,12 @@
 package com.jp.stock.api.model.response;
 
 import java.math.BigDecimal;
-import lombok.ToString;
 
-/** @author chandresh.mishra */
-@ToString
+/**
+ * Response message class
+ *
+ * @author chandresh.mishra
+ */
 public class Message {
 
   private BigDecimal result;

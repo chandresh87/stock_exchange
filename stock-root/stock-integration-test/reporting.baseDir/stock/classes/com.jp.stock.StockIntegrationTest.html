@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.jp.stock.StockIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.jp.stock.StockIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.jp.stock.html">com.jp.stock</a> &gt; StockIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.333s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">75%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+<li>
+<a href="#tab3">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="getVolumeWeightedStockPriceTest"></a>
+<h3 class="failures">getVolumeWeightedStockPriceTest</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;500&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:55)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:82)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:617)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:179)
+	at com.jp.stock.StockIntegrationTest.getVolumeWeightedStockPriceTest(StockIntegrationTest.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:73)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:83)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:114)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:57)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:66)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy1.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:109)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:146)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:128)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:46)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">getDividendTest</td>
+<td>0.119s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getPERatioTest</td>
+<td>0.018s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">getVolumeWeightedStockPriceTest</td>
+<td>0.475s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">saveTradeTest</td>
+<td>0.721s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2018-03-04 09:54:09,582 Test worker DEBUG Initializing configuration XmlConfiguration[location=jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml]
+2018-03-04 09:54:09,595 Test worker DEBUG Installed 1 script engine
+2018-03-04 09:54:10,019 Test worker DEBUG Oracle Nashorn version: 1.8.0_152, language: ECMAScript, threading: Not Thread Safe, compile: true, names: [nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript], factory class: jdk.nashorn.api.scripting.NashornScriptEngineFactory
+2018-03-04 09:54:10,020 Test worker DEBUG PluginManager 'Core' found 116 plugins
+2018-03-04 09:54:10,021 Test worker DEBUG PluginManager 'Level' found 0 plugins
+2018-03-04 09:54:10,033 Test worker DEBUG Building Plugin[name=property, class=org.apache.logging.log4j.core.config.Property].
+2018-03-04 09:54:10,053 Test worker TRACE TypeConverterRegistry initializing.
+2018-03-04 09:54:10,054 Test worker DEBUG PluginManager 'TypeConverter' found 26 plugins
+2018-03-04 09:54:10,067 Test worker DEBUG createProperty(name=&quot;basePath&quot;, value=&quot;C:\\data\\stock_log&quot;)
+2018-03-04 09:54:10,068 Test worker DEBUG Building Plugin[name=properties, class=org.apache.logging.log4j.core.config.PropertiesPlugin].
+2018-03-04 09:54:10,087 Test worker DEBUG configureSubstitutor(={basePath=C:\\data\\stock_log}, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml))
+2018-03-04 09:54:10,089 Test worker DEBUG PluginManager 'Lookup' found 13 plugins
+2018-03-04 09:54:10,091 Test worker DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
+2018-03-04 09:54:10,103 Test worker DEBUG PatternLayout$Builder(pattern=&quot;[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n&quot;, PatternSelector=null, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Replace=null, charset=&quot;null&quot;, alwaysWriteExceptions=&quot;null&quot;, disableAnsi=&quot;null&quot;, noConsoleNoAnsi=&quot;null&quot;, header=&quot;null&quot;, footer=&quot;null&quot;)
+2018-03-04 09:54:10,104 Test worker DEBUG PluginManager 'Converter' found 45 plugins
+2018-03-04 09:54:10,143 Test worker DEBUG Building Plugin[name=TimeBasedTriggeringPolicy, class=org.apache.logging.log4j.core.appender.rolling.TimeBasedTriggeringPolicy].
+2018-03-04 09:54:10,150 Test worker DEBUG TimeBasedTriggeringPolicy$Builder(interval=&quot;1&quot;, modulate=&quot;true&quot;, maxRandomDelay=&quot;null&quot;)
+2018-03-04 09:54:10,151 Test worker DEBUG Building Plugin[name=Policies, class=org.apache.logging.log4j.core.appender.rolling.CompositeTriggeringPolicy].
+2018-03-04 09:54:10,152 Test worker DEBUG createPolicy(={TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=true)})
+2018-03-04 09:54:10,153 Test worker DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.RollingFileAppender].
+2018-03-04 09:54:10,172 Test worker DEBUG RollingFileAppender$Builder(fileName=&quot;C:\\data\\stock_log/stock_app-info.log&quot;, filePattern=&quot;C:\\data\\stock_log/drools_app-info-%d{yyyy-MM-dd}.log&quot;, append=&quot;null&quot;, locking=&quot;null&quot;, Policies(CompositeTriggeringPolicy(policies=[TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=true)])), Strategy=null, advertise=&quot;null&quot;, advertiseUri=&quot;null&quot;, createOnDemand=&quot;null&quot;, filePermissions=&quot;null&quot;, fileOwner=&quot;null&quot;, fileGroup=&quot;null&quot;, bufferedIo=&quot;null&quot;, bufferSize=&quot;null&quot;, immediateFlush=&quot;null&quot;, ignoreExceptions=&quot;null&quot;, PatternLayout([%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n), name=&quot;fileLogger&quot;, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Filter=null)
+2018-03-04 09:54:10,191 Test worker TRACE New file 'C:\\data\\stock_log/stock_app-info.log' created = false
+2018-03-04 09:54:10,195 Test worker DEBUG Starting RollingFileManager C:\\data\\stock_log/stock_app-info.log
+2018-03-04 09:54:10,201 Test worker DEBUG PluginManager 'FileConverter' found 2 plugins
+2018-03-04 09:54:10,206 Test worker DEBUG Setting prev file time to 2018-03-04T09:51:05.432+0000
+2018-03-04 09:54:10,211 Test worker DEBUG Initializing triggering policy CompositeTriggeringPolicy(policies=[TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=true)])
+2018-03-04 09:54:10,213 Test worker TRACE PatternProcessor.getNextTime returning 2018/03/05-00:00:00.000, nextFileTime=2018/03/04-00:00:00.000, prevFileTime=1970/01/01-01:00:00.000, current=2018/03/04-09:54:10.213, freq=DAILY
+2018-03-04 09:54:10,215 Test worker TRACE PatternProcessor.getNextTime returning 2018/03/05-00:00:00.000, nextFileTime=2018/03/04-00:00:00.000, prevFileTime=2018/03/04-00:00:00.000, current=2018/03/04-09:54:10.215, freq=DAILY
+2018-03-04 09:54:10,216 Test worker DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
+2018-03-04 09:54:10,217 Test worker DEBUG PatternLayout$Builder(pattern=&quot;[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n&quot;, PatternSelector=null, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Replace=null, charset=&quot;null&quot;, alwaysWriteExceptions=&quot;null&quot;, disableAnsi=&quot;null&quot;, noConsoleNoAnsi=&quot;null&quot;, header=&quot;null&quot;, footer=&quot;null&quot;)
+2018-03-04 09:54:10,218 Test worker DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.ConsoleAppender].
+2018-03-04 09:54:10,223 Test worker DEBUG ConsoleAppender$Builder(target=&quot;SYSTEM_OUT&quot;, follow=&quot;null&quot;, direct=&quot;null&quot;, bufferedIo=&quot;null&quot;, bufferSize=&quot;null&quot;, immediateFlush=&quot;null&quot;, ignoreExceptions=&quot;null&quot;, PatternLayout([%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n), name=&quot;console&quot;, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Filter=null)
+2018-03-04 09:54:10,226 Test worker DEBUG Starting OutputStreamManager SYSTEM_OUT.false.false
+2018-03-04 09:54:10,227 Test worker DEBUG Building Plugin[name=appenders, class=org.apache.logging.log4j.core.config.AppendersPlugin].
+2018-03-04 09:54:10,228 Test worker DEBUG createAppenders(={fileLogger, console})
+2018-03-04 09:54:10,229 Test worker DEBUG Building Plugin[name=appender-ref, class=org.apache.logging.log4j.core.config.AppenderRef].
+2018-03-04 09:54:10,232 Test worker DEBUG createAppenderRef(ref=&quot;console&quot;, level=&quot;INFO&quot;, Filter=null)
+2018-03-04 09:54:10,234 Test worker DEBUG Building Plugin[name=logger, class=org.apache.logging.log4j.core.config.LoggerConfig].
+2018-03-04 09:54:10,237 Test worker DEBUG createLogger(additivity=&quot;true&quot;, level=&quot;null&quot;, name=&quot;org.springframework.core.env.StandardEnvironment&quot;, includeLocation=&quot;null&quot;, ={console}, ={}, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Filter=null)
+2018-03-04 09:54:10,243 Test worker DEBUG Building Plugin[name=appender-ref, class=org.apache.logging.log4j.core.config.AppenderRef].
+2018-03-04 09:54:10,244 Test worker DEBUG createAppenderRef(ref=&quot;fileLogger&quot;, level=&quot;null&quot;, Filter=null)
+2018-03-04 09:54:10,244 Test worker DEBUG Building Plugin[name=root, class=org.apache.logging.log4j.core.config.LoggerConfig$RootLogger].
+2018-03-04 09:54:10,246 Test worker DEBUG createLogger(additivity=&quot;false&quot;, level=&quot;INFO&quot;, includeLocation=&quot;null&quot;, ={fileLogger}, ={}, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Filter=null)
+2018-03-04 09:54:10,248 Test worker DEBUG Building Plugin[name=loggers, class=org.apache.logging.log4j.core.config.LoggersPlugin].
+2018-03-04 09:54:10,250 Test worker DEBUG createLoggers(={org.springframework.core.env.StandardEnvironment, root})
+2018-03-04 09:54:10,252 Test worker DEBUG Configuration XmlConfiguration[location=jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml] initialized
+2018-03-04 09:54:10,253 Test worker DEBUG Starting configuration XmlConfiguration[location=jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml]
+2018-03-04 09:54:10,254 Test worker DEBUG Started configuration XmlConfiguration[location=jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml] OK.
+2018-03-04 09:54:10,256 Test worker TRACE Stopping org.apache.logging.log4j.core.config.DefaultConfiguration@6aeb1eba...
+2018-03-04 09:54:10,256 Test worker TRACE DefaultConfiguration notified 1 ReliabilityStrategies that config will be stopped.
+2018-03-04 09:54:10,257 Test worker TRACE DefaultConfiguration stopping root LoggerConfig.
+2018-03-04 09:54:10,258 Test worker TRACE DefaultConfiguration notifying ReliabilityStrategies that appenders will be stopped.
+2018-03-04 09:54:10,259 Test worker TRACE DefaultConfiguration stopping remaining Appenders.
+2018-03-04 09:54:10,259 Test worker DEBUG Shutting down OutputStreamManager SYSTEM_OUT.false.false-1
+2018-03-04 09:54:10,260 Test worker DEBUG Shut down OutputStreamManager SYSTEM_OUT.false.false-1, all resources released: true
+2018-03-04 09:54:10,261 Test worker DEBUG Appender DefaultConsole-1 stopped with status true
+2018-03-04 09:54:10,262 Test worker TRACE DefaultConfiguration stopped 1 remaining Appenders.
+2018-03-04 09:54:10,262 Test worker TRACE DefaultConfiguration cleaning Appenders from 1 LoggerConfigs.
+2018-03-04 09:54:10,263 Test worker DEBUG Stopped org.apache.logging.log4j.core.config.DefaultConfiguration@6aeb1eba OK
+2018-03-04 09:54:10,319 Test worker TRACE Reregistering MBeans after reconfigure. Selector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector@72627e0e
+2018-03-04 09:54:10,320 Test worker TRACE Reregistering context (1/1): '659e0bfd' org.apache.logging.log4j.core.LoggerContext@504a9bbb
+2018-03-04 09:54:10,322 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd'
+2018-03-04 09:54:10,324 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd,component=StatusLogger'
+2018-03-04 09:54:10,325 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd,component=ContextSelector'
+2018-03-04 09:54:10,327 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd,component=Loggers,name=*'
+2018-03-04 09:54:10,328 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd,component=Appenders,name=*'
+2018-03-04 09:54:10,328 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd,component=AsyncAppenders,name=*'
+2018-03-04 09:54:10,329 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd,component=AsyncLoggerRingBuffer'
+2018-03-04 09:54:10,330 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd,component=Loggers,name=*,subtype=RingBuffer'
+2018-03-04 09:54:10,333 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd
+2018-03-04 09:54:10,337 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=StatusLogger
+2018-03-04 09:54:10,339 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=ContextSelector
+2018-03-04 09:54:10,341 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=Loggers,name=
+2018-03-04 09:54:10,342 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=Loggers,name=org.springframework.core.env.StandardEnvironment
+2018-03-04 09:54:10,345 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=Appenders,name=fileLogger
+2018-03-04 09:54:10,346 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=Appenders,name=console
+2018-03-04 09:54:10,350 Test worker TRACE Using default SystemClock for timestamps.
+2018-03-04 09:54:10,351 Test worker TRACE Using DummyNanoClock for nanosecond timestamps.
+2018-03-04 09:54:10,352 Test worker DEBUG Reconfiguration complete for context[name=659e0bfd] at URI jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml (org.apache.logging.log4j.core.LoggerContext@504a9bbb) with optional ClassLoader: null
+2018-03-04 09:54:10,353 Test worker DEBUG Shutdown hook enabled. Registering a new one.
+2018-03-04 09:54:10,355 Test worker DEBUG LoggerContext[name=659e0bfd, org.apache.logging.log4j.core.LoggerContext@504a9bbb] started OK.
+2018-03-04 09:54:10,373 Test worker DEBUG AsyncLogger.ThreadNameStrategy=UNCACHED (user specified null, default is UNCACHED)
+2018-03-04 09:54:10,374 Test worker TRACE Using default SystemClock for timestamps.
+2018-03-04 09:54:11,391 Test worker DEBUG Reconfiguration started for context[name=659e0bfd] at URI null (org.apache.logging.log4j.core.LoggerContext@504a9bbb) with optional ClassLoader: null
+2018-03-04 09:54:11,392 Test worker DEBUG Using configurationFactory org.apache.logging.log4j.core.config.ConfigurationFactory$Factory@3e73713
+2018-03-04 09:54:11,393 Test worker TRACE Trying to find [log4j2-test659e0bfd.properties] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,394 Test worker TRACE Trying to find [log4j2-test659e0bfd.properties] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,395 Test worker TRACE Trying to find [log4j2-test659e0bfd.properties] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,396 Test worker TRACE Trying to find [log4j2-test659e0bfd.properties] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,397 Test worker TRACE Trying to find [log4j2-test659e0bfd.yml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,398 Test worker TRACE Trying to find [log4j2-test659e0bfd.yml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,400 Test worker TRACE Trying to find [log4j2-test659e0bfd.yml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,401 Test worker TRACE Trying to find [log4j2-test659e0bfd.yml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,402 Test worker TRACE Trying to find [log4j2-test659e0bfd.yaml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,403 Test worker TRACE Trying to find [log4j2-test659e0bfd.yaml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,404 Test worker TRACE Trying to find [log4j2-test659e0bfd.yaml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,406 Test worker TRACE Trying to find [log4j2-test659e0bfd.yaml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,407 Test worker TRACE Trying to find [log4j2-test659e0bfd.json] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,408 Test worker TRACE Trying to find [log4j2-test659e0bfd.json] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,410 Test worker TRACE Trying to find [log4j2-test659e0bfd.json] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,411 Test worker TRACE Trying to find [log4j2-test659e0bfd.json] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,412 Test worker TRACE Trying to find [log4j2-test659e0bfd.jsn] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,413 Test worker TRACE Trying to find [log4j2-test659e0bfd.jsn] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,415 Test worker TRACE Trying to find [log4j2-test659e0bfd.jsn] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,416 Test worker TRACE Trying to find [log4j2-test659e0bfd.jsn] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,417 Test worker TRACE Trying to find [log4j2-test659e0bfd.xml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,418 Test worker TRACE Trying to find [log4j2-test659e0bfd.xml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,419 Test worker TRACE Trying to find [log4j2-test659e0bfd.xml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,420 Test worker TRACE Trying to find [log4j2-test659e0bfd.xml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,421 Test worker TRACE Trying to find [log4j2-test659e0bfd.springboot] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,422 Test worker TRACE Trying to find [log4j2-test659e0bfd.springboot] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,423 Test worker TRACE Trying to find [log4j2-test659e0bfd.springboot] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,424 Test worker TRACE Trying to find [log4j2-test659e0bfd.springboot] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,425 Test worker TRACE Trying to find [log4j2-test.properties] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,426 Test worker TRACE Trying to find [log4j2-test.properties] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,427 Test worker TRACE Trying to find [log4j2-test.properties] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,428 Test worker TRACE Trying to find [log4j2-test.properties] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,429 Test worker TRACE Trying to find [log4j2-test.yml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,430 Test worker TRACE Trying to find [log4j2-test.yml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,433 Test worker TRACE Trying to find [log4j2-test.yml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,434 Test worker TRACE Trying to find [log4j2-test.yml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,436 Test worker TRACE Trying to find [log4j2-test.yaml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,437 Test worker TRACE Trying to find [log4j2-test.yaml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,438 Test worker TRACE Trying to find [log4j2-test.yaml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,440 Test worker TRACE Trying to find [log4j2-test.yaml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,441 Test worker TRACE Trying to find [log4j2-test.json] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,442 Test worker TRACE Trying to find [log4j2-test.json] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,444 Test worker TRACE Trying to find [log4j2-test.json] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,445 Test worker TRACE Trying to find [log4j2-test.json] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,446 Test worker TRACE Trying to find [log4j2-test.jsn] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,447 Test worker TRACE Trying to find [log4j2-test.jsn] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,448 Test worker TRACE Trying to find [log4j2-test.jsn] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,449 Test worker TRACE Trying to find [log4j2-test.jsn] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,450 Test worker TRACE Trying to find [log4j2-test.xml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,451 Test worker TRACE Trying to find [log4j2-test.xml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,452 Test worker TRACE Trying to find [log4j2-test.xml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,453 Test worker TRACE Trying to find [log4j2-test.xml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,454 Test worker TRACE Trying to find [log4j2-test.springboot] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,455 Test worker TRACE Trying to find [log4j2-test.springboot] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,455 Test worker TRACE Trying to find [log4j2-test.springboot] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,456 Test worker TRACE Trying to find [log4j2-test.springboot] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,457 Test worker TRACE Trying to find [log4j2659e0bfd.properties] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,458 Test worker TRACE Trying to find [log4j2659e0bfd.properties] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,459 Test worker TRACE Trying to find [log4j2659e0bfd.properties] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,459 Test worker TRACE Trying to find [log4j2659e0bfd.properties] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,460 Test worker TRACE Trying to find [log4j2659e0bfd.yml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,461 Test worker TRACE Trying to find [log4j2659e0bfd.yml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,462 Test worker TRACE Trying to find [log4j2659e0bfd.yml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,463 Test worker TRACE Trying to find [log4j2659e0bfd.yml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,465 Test worker TRACE Trying to find [log4j2659e0bfd.yaml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,466 Test worker TRACE Trying to find [log4j2659e0bfd.yaml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,467 Test worker TRACE Trying to find [log4j2659e0bfd.yaml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,468 Test worker TRACE Trying to find [log4j2659e0bfd.yaml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,469 Test worker TRACE Trying to find [log4j2659e0bfd.json] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,470 Test worker TRACE Trying to find [log4j2659e0bfd.json] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,471 Test worker TRACE Trying to find [log4j2659e0bfd.json] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,472 Test worker TRACE Trying to find [log4j2659e0bfd.json] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,473 Test worker TRACE Trying to find [log4j2659e0bfd.jsn] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,474 Test worker TRACE Trying to find [log4j2659e0bfd.jsn] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,475 Test worker TRACE Trying to find [log4j2659e0bfd.jsn] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,476 Test worker TRACE Trying to find [log4j2659e0bfd.jsn] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,477 Test worker TRACE Trying to find [log4j2659e0bfd.xml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,478 Test worker TRACE Trying to find [log4j2659e0bfd.xml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,479 Test worker TRACE Trying to find [log4j2659e0bfd.xml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,480 Test worker TRACE Trying to find [log4j2659e0bfd.xml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,481 Test worker TRACE Trying to find [log4j2659e0bfd.springboot] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,482 Test worker TRACE Trying to find [log4j2659e0bfd.springboot] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,483 Test worker TRACE Trying to find [log4j2659e0bfd.springboot] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,484 Test worker TRACE Trying to find [log4j2659e0bfd.springboot] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,484 Test worker TRACE Trying to find [log4j2.properties] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,485 Test worker TRACE Trying to find [log4j2.properties] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,486 Test worker TRACE Trying to find [log4j2.properties] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,487 Test worker TRACE Trying to find [log4j2.properties] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,488 Test worker TRACE Trying to find [log4j2.yml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,488 Test worker TRACE Trying to find [log4j2.yml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,489 Test worker TRACE Trying to find [log4j2.yml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,490 Test worker TRACE Trying to find [log4j2.yml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,491 Test worker TRACE Trying to find [log4j2.yaml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,492 Test worker TRACE Trying to find [log4j2.yaml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,494 Test worker TRACE Trying to find [log4j2.yaml] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,495 Test worker TRACE Trying to find [log4j2.yaml] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,496 Test worker TRACE Trying to find [log4j2.json] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,497 Test worker TRACE Trying to find [log4j2.json] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,499 Test worker TRACE Trying to find [log4j2.json] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,500 Test worker TRACE Trying to find [log4j2.json] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,501 Test worker TRACE Trying to find [log4j2.jsn] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,502 Test worker TRACE Trying to find [log4j2.jsn] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,503 Test worker TRACE Trying to find [log4j2.jsn] using sun.misc.Launcher$AppClassLoader@659e0bfd class loader.
+2018-03-04 09:54:11,504 Test worker TRACE Trying to find [log4j2.jsn] using ClassLoader.getSystemResource().
+2018-03-04 09:54:11,505 Test worker TRACE Trying to find [log4j2.xml] using context class loader sun.misc.Launcher$AppClassLoader@659e0bfd.
+2018-03-04 09:54:11,508 Test worker INFO Log4j appears to be running in a Servlet environment, but there's no log4j-web module available. If you want better web container support, please add the log4j-web JAR to your web archive or server lib directory.
+2018-03-04 09:54:11,513 Test worker DEBUG Initializing configuration XmlConfiguration[location=jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml]
+2018-03-04 09:54:11,515 Test worker DEBUG Installed 1 script engine
+2018-03-04 09:54:11,525 Test worker DEBUG Oracle Nashorn version: 1.8.0_152, language: ECMAScript, threading: Not Thread Safe, compile: true, names: [nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript], factory class: jdk.nashorn.api.scripting.NashornScriptEngineFactory
+2018-03-04 09:54:11,525 Test worker DEBUG PluginManager 'Core' found 116 plugins
+2018-03-04 09:54:11,526 Test worker DEBUG PluginManager 'Level' found 0 plugins
+2018-03-04 09:54:11,527 Test worker DEBUG Building Plugin[name=property, class=org.apache.logging.log4j.core.config.Property].
+2018-03-04 09:54:11,528 Test worker DEBUG createProperty(name=&quot;basePath&quot;, value=&quot;C:\\data\\stock_log&quot;)
+2018-03-04 09:54:11,529 Test worker DEBUG Building Plugin[name=properties, class=org.apache.logging.log4j.core.config.PropertiesPlugin].
+2018-03-04 09:54:11,529 Test worker DEBUG configureSubstitutor(={basePath=C:\\data\\stock_log}, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml))
+2018-03-04 09:54:11,530 Test worker DEBUG PluginManager 'Lookup' found 13 plugins
+2018-03-04 09:54:11,531 Test worker DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
+2018-03-04 09:54:11,532 Test worker DEBUG PatternLayout$Builder(pattern=&quot;[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n&quot;, PatternSelector=null, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Replace=null, charset=&quot;null&quot;, alwaysWriteExceptions=&quot;null&quot;, disableAnsi=&quot;null&quot;, noConsoleNoAnsi=&quot;null&quot;, header=&quot;null&quot;, footer=&quot;null&quot;)
+2018-03-04 09:54:11,532 Test worker DEBUG PluginManager 'Converter' found 45 plugins
+2018-03-04 09:54:11,533 Test worker DEBUG Building Plugin[name=TimeBasedTriggeringPolicy, class=org.apache.logging.log4j.core.appender.rolling.TimeBasedTriggeringPolicy].
+2018-03-04 09:54:11,534 Test worker DEBUG TimeBasedTriggeringPolicy$Builder(interval=&quot;1&quot;, modulate=&quot;true&quot;, maxRandomDelay=&quot;null&quot;)
+2018-03-04 09:54:11,535 Test worker DEBUG Building Plugin[name=Policies, class=org.apache.logging.log4j.core.appender.rolling.CompositeTriggeringPolicy].
+2018-03-04 09:54:11,535 Test worker DEBUG createPolicy(={TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=true)})
+2018-03-04 09:54:11,536 Test worker DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.RollingFileAppender].
+2018-03-04 09:54:11,537 Test worker DEBUG RollingFileAppender$Builder(fileName=&quot;C:\\data\\stock_log/stock_app-info.log&quot;, filePattern=&quot;C:\\data\\stock_log/drools_app-info-%d{yyyy-MM-dd}.log&quot;, append=&quot;null&quot;, locking=&quot;null&quot;, Policies(CompositeTriggeringPolicy(policies=[TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=true)])), Strategy=null, advertise=&quot;null&quot;, advertiseUri=&quot;null&quot;, createOnDemand=&quot;null&quot;, filePermissions=&quot;null&quot;, fileOwner=&quot;null&quot;, fileGroup=&quot;null&quot;, bufferedIo=&quot;null&quot;, bufferSize=&quot;null&quot;, immediateFlush=&quot;null&quot;, ignoreExceptions=&quot;null&quot;, PatternLayout([%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n), name=&quot;fileLogger&quot;, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Filter=null)
+2018-03-04 09:54:11,538 Test worker TRACE PatternProcessor.getNextTime returning 2018/03/05-00:00:00.000, nextFileTime=2018/03/04-00:00:00.000, prevFileTime=2018/03/04-00:00:00.000, current=2018/03/04-09:54:11.537, freq=DAILY
+2018-03-04 09:54:11,539 Test worker TRACE PatternProcessor.getNextTime returning 2018/03/05-00:00:00.000, nextFileTime=2018/03/04-00:00:00.000, prevFileTime=2018/03/04-00:00:00.000, current=2018/03/04-09:54:11.538, freq=DAILY
+2018-03-04 09:54:11,539 Test worker DEBUG PluginManager 'FileConverter' found 2 plugins
+2018-03-04 09:54:11,540 Test worker DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
+2018-03-04 09:54:11,541 Test worker DEBUG PatternLayout$Builder(pattern=&quot;[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n&quot;, PatternSelector=null, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Replace=null, charset=&quot;null&quot;, alwaysWriteExceptions=&quot;null&quot;, disableAnsi=&quot;null&quot;, noConsoleNoAnsi=&quot;null&quot;, header=&quot;null&quot;, footer=&quot;null&quot;)
+2018-03-04 09:54:11,542 Test worker DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.ConsoleAppender].
+2018-03-04 09:54:11,543 Test worker DEBUG ConsoleAppender$Builder(target=&quot;SYSTEM_OUT&quot;, follow=&quot;null&quot;, direct=&quot;null&quot;, bufferedIo=&quot;null&quot;, bufferSize=&quot;null&quot;, immediateFlush=&quot;null&quot;, ignoreExceptions=&quot;null&quot;, PatternLayout([%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n), name=&quot;console&quot;, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Filter=null)
+2018-03-04 09:54:11,545 Test worker DEBUG Building Plugin[name=appenders, class=org.apache.logging.log4j.core.config.AppendersPlugin].
+2018-03-04 09:54:11,547 Test worker DEBUG createAppenders(={fileLogger, console})
+2018-03-04 09:54:11,550 Test worker DEBUG Building Plugin[name=appender-ref, class=org.apache.logging.log4j.core.config.AppenderRef].
+2018-03-04 09:54:11,551 Test worker DEBUG createAppenderRef(ref=&quot;console&quot;, level=&quot;INFO&quot;, Filter=null)
+2018-03-04 09:54:11,553 Test worker DEBUG Building Plugin[name=logger, class=org.apache.logging.log4j.core.config.LoggerConfig].
+2018-03-04 09:54:11,555 Test worker DEBUG createLogger(additivity=&quot;true&quot;, level=&quot;null&quot;, name=&quot;org.springframework.core.env.StandardEnvironment&quot;, includeLocation=&quot;null&quot;, ={console}, ={}, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Filter=null)
+2018-03-04 09:54:11,556 Test worker DEBUG Building Plugin[name=appender-ref, class=org.apache.logging.log4j.core.config.AppenderRef].
+2018-03-04 09:54:11,557 Test worker DEBUG createAppenderRef(ref=&quot;fileLogger&quot;, level=&quot;null&quot;, Filter=null)
+2018-03-04 09:54:11,559 Test worker DEBUG Building Plugin[name=root, class=org.apache.logging.log4j.core.config.LoggerConfig$RootLogger].
+2018-03-04 09:54:11,560 Test worker DEBUG createLogger(additivity=&quot;false&quot;, level=&quot;INFO&quot;, includeLocation=&quot;null&quot;, ={fileLogger}, ={}, Configuration(jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml), Filter=null)
+2018-03-04 09:54:11,561 Test worker DEBUG Building Plugin[name=loggers, class=org.apache.logging.log4j.core.config.LoggersPlugin].
+2018-03-04 09:54:11,562 Test worker DEBUG createLoggers(={org.springframework.core.env.StandardEnvironment, root})
+2018-03-04 09:54:11,563 Test worker DEBUG Configuration XmlConfiguration[location=jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml] initialized
+2018-03-04 09:54:11,563 Test worker DEBUG Starting configuration XmlConfiguration[location=jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml]
+2018-03-04 09:54:11,564 Test worker DEBUG Started configuration XmlConfiguration[location=jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml] OK.
+2018-03-04 09:54:11,565 Test worker DEBUG LogService responding to a property change event. Property name is config.
+2018-03-04 09:54:11,569 Test worker DEBUG Setting delegating to false
+2018-03-04 09:54:11,569 Test worker TRACE Stopping XmlConfiguration[location=jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml]...
+2018-03-04 09:54:11,570 Test worker TRACE XmlConfiguration notified 3 ReliabilityStrategies that config will be stopped.
+2018-03-04 09:54:11,570 Test worker TRACE XmlConfiguration stopping 2 LoggerConfigs.
+2018-03-04 09:54:11,571 Test worker TRACE XmlConfiguration stopping root LoggerConfig.
+2018-03-04 09:54:11,572 Test worker TRACE XmlConfiguration notifying ReliabilityStrategies that appenders will be stopped.
+2018-03-04 09:54:11,572 Test worker TRACE XmlConfiguration stopping remaining Appenders.
+2018-03-04 09:54:11,573 Test worker DEBUG Appender console stopped with status true
+2018-03-04 09:54:11,573 Test worker DEBUG Appender fileLogger stopped with status true
+2018-03-04 09:54:11,574 Test worker TRACE XmlConfiguration stopped 2 remaining Appenders.
+2018-03-04 09:54:11,575 Test worker TRACE XmlConfiguration cleaning Appenders from 3 LoggerConfigs.
+2018-03-04 09:54:11,576 Test worker DEBUG Stopped XmlConfiguration[location=jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml] OK
+2018-03-04 09:54:11,576 Test worker DEBUG LogService responding to a property change event. Property name is config.
+2018-03-04 09:54:11,577 Test worker DEBUG Setting delegating to false
+2018-03-04 09:54:11,578 Test worker TRACE Reregistering MBeans after reconfigure. Selector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector@72627e0e
+2018-03-04 09:54:11,579 Test worker TRACE Reregistering context (1/1): '659e0bfd' org.apache.logging.log4j.core.LoggerContext@504a9bbb
+2018-03-04 09:54:11,581 Test worker TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=659e0bfd]
+2018-03-04 09:54:11,582 Test worker TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=659e0bfd,component=StatusLogger]
+2018-03-04 09:54:11,583 Test worker TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=659e0bfd,component=ContextSelector]
+2018-03-04 09:54:11,584 Test worker TRACE Unregistering 2 MBeans: [org.apache.logging.log4j2:type=659e0bfd,component=Loggers,name=org.springframework.core.env.StandardEnvironment, org.apache.logging.log4j2:type=659e0bfd,component=Loggers,name=]
+2018-03-04 09:54:11,585 Test worker TRACE Unregistering 2 MBeans: [org.apache.logging.log4j2:type=659e0bfd,component=Appenders,name=fileLogger, org.apache.logging.log4j2:type=659e0bfd,component=Appenders,name=console]
+2018-03-04 09:54:11,586 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd,component=AsyncAppenders,name=*'
+2018-03-04 09:54:11,587 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd,component=AsyncLoggerRingBuffer'
+2018-03-04 09:54:11,588 Test worker TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=659e0bfd,component=Loggers,name=*,subtype=RingBuffer'
+2018-03-04 09:54:11,589 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd
+2018-03-04 09:54:11,590 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=StatusLogger
+2018-03-04 09:54:11,591 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=ContextSelector
+2018-03-04 09:54:11,592 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=Loggers,name=
+2018-03-04 09:54:11,593 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=Loggers,name=org.springframework.core.env.StandardEnvironment
+2018-03-04 09:54:11,595 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=Appenders,name=fileLogger
+2018-03-04 09:54:11,596 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=Appenders,name=console
+2018-03-04 09:54:11,597 Test worker TRACE Using DummyNanoClock for nanosecond timestamps.
+2018-03-04 09:54:11,598 Test worker DEBUG Reconfiguration complete for context[name=659e0bfd] at URI jar:file:/C:/Data/stock_exchange/stock-root/stock-app/build/libs/stock-app-0.0.1-SNAPSHOT.jar!/log4j2.xml (org.apache.logging.log4j.core.LoggerContext@504a9bbb) with optional ClassLoader: null
+2018-03-04 09:54:11,599 Test worker DEBUG LogService responding to a property change event. Property name is config.
+2018-03-04 09:54:11,600 Test worker DEBUG Setting delegating to false
+2018-03-04 09:54:11,601 Test worker DEBUG LogService responding to a property change event. Property name is config.
+2018-03-04 09:54:11,602 Test worker DEBUG Setting delegating to false
+2018-03-04 09:54:12,691 Test worker INFO Log4j appears to be running in a Servlet environment, but there's no log4j-web module available. If you want better web container support, please add the log4j-web JAR to your web archive or server lib directory.
+2018-03-04 09:54:12,692 Test worker DEBUG PluginManager 'Converter' found 45 plugins
+2018-03-04 09:54:12,692 Test worker DEBUG Starting OutputStreamManager SYSTEM_OUT.false.false-2
+2018-03-04 09:54:12,699 Test worker DEBUG LogService responding to a property change event. Property name is config.
+2018-03-04 09:54:12,699 Test worker DEBUG Setting delegating to true
+2018-03-04 09:54:12,700 Test worker DEBUG Setting delegating to true
+2018-03-04 09:54:12,701 Test worker DEBUG LogService responding to a property change event. Property name is config.
+2018-03-04 09:54:12,702 Test worker DEBUG Setting delegating to true
+2018-03-04 09:54:12,702 Test worker DEBUG Setting delegating to true
+2018-03-04 09:54:12,741 Test worker DEBUG LogService responding to a property change event. Property name is config.
+2018-03-04 09:54:12,741 Test worker DEBUG Setting delegating to true
+Attempting to read from file in: C:\Data\stock_exchange\stock-root\stock-integration-test\StockExchangeData.xlsx
+</pre>
+</span>
+</div>
+<div id="tab3" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.0</a> at 04-Mar-2018 09:54:22</p>
+</div>
+</div>
+</body>
+</html>
