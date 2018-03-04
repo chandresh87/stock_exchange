@@ -59,9 +59,8 @@ public class SimpleTradeService implements TradeService {
             .reduce(1.0, (x, y) -> x * y);
 
     double geometricMean = Math.pow(accumulate, (double) (1.0 / tradeBOList.size()));
-    BigDecimal geometricMeanResult = BigDecimal.valueOf(geometricMean);
-    geometricMeanResult.setScale(0, BigDecimal.ROUND_HALF_EVEN);
-    logger.traceExit("Result: geometricMeanResult - {}", geometricMeanResult);
-    return geometricMeanResult;
+
+    logger.traceExit("Result: geometricMeanResult - {}", geometricMean);
+    return new BigDecimal(geometricMean).setScale(0, BigDecimal.ROUND_HALF_EVEN);
   }
 }

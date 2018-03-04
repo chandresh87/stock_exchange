@@ -67,6 +67,6 @@ configurations {
 
 jar {
 	manifest {
-		attributes('BaseName': 'stock-forecast-integration-test', 'Version': version)
+		attributes('BaseName': 'stock-integration-test', 'Version': version)
 	}
 }
