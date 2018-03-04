@@ -1,4 +1,3 @@
-/** */
 package com.jp.stock.api.controller;
 
 import com.jp.stock.api.contract.StockAPI;
@@ -69,11 +68,7 @@ public class StockController implements StockAPI {
    * @see com.jp.stock.api.controller.StockAPI#saveTrade(com.jp.stock.api.model.request.TradeModel)
    */
   @Override
-  @PostMapping(
-    path = "/saveTrade",
-    produces = MediaType.APPLICATION_JSON_VALUE,
-    consumes = MediaType.APPLICATION_JSON_VALUE
-  )
+  @PostMapping(path = "/saveTrade", consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<String> saveTrade(@Valid @RequestBody TradeModel tradeModel) {
     simpleStockFactory.getStockService().recordTrade(modelMapper.tradeModelToTradeBO(tradeModel));
 

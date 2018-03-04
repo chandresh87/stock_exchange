@@ -18,7 +18,6 @@ repositories {
         url "http://dist.gemstone.com/maven/release"
    }}
 
-apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 dependencies {
@@ -27,15 +26,29 @@ dependencies {
     compile('io.springfox:springfox-swagger2:2.6.1') {
 		exclude group: 'org.mapstruct'
 	}
+	 compile('io.springfox:springfox-swagger-ui:2.6.1')
 	compile('org.springframework.boot:spring-boot-starter-web')	
+	compile('org.springframework.boot:spring-boot-starter-actuator')	
+	
 }
 configurations {
 	compile.exclude module: 'spring-boot-starter-logging'
 }
 
-jar.enabled = true 	
-bootJar {
+apply plugin: 'org.springframework.boot'
+ jar.enabled = true 	
+jar{
 	manifest {
 		attributes('BaseName': 'stock-api', 'Version': version)
 	}
+}
+
+/*
+ * Because this module produces an executable jar it cannot also be used as a
+ * dependency (to the integration-test module) because the classes are packaged
+ * into BOOT-INF/classses. The setting below causes two jars to be produced, one
+ * which is suitable as a dependency and one which is executable.
+ */
+bootJar  {
+    classifier = 'exec'
 }

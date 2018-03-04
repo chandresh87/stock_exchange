@@ -1,6 +1,7 @@
 package com.jp.stock.api;
 
 import com.jp.stock.api.config.ApiConfig;
+import com.jp.stock.api.config.SwaggerConfig;
 import com.jp.stock.service.config.GemfireConfiguration;
 import com.jp.stock.service.config.ServiceConfig;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +13,9 @@ import org.springframework.context.annotation.Import;
  *
  * @author chandresh.mishra
  */
-@Import(value = {ApiConfig.class, GemfireConfiguration.class, ServiceConfig.class})
+@Import(
+  value = {ApiConfig.class, GemfireConfiguration.class, ServiceConfig.class, SwaggerConfig.class}
+)
 @SpringBootApplication
 public class StockExchangeServiceApplication {
 

@@ -5,9 +5,9 @@ import com.jp.stock.enums.StockType;
 import com.jp.stock.remote.dto.StockDTO;
 import com.jp.stock.service.StockService;
 import com.jp.stock.service.mapper.StockMapper;
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -73,16 +73,11 @@ public class LoadExchangeData {
    */
   public List<StockDTO> readStockDataFromExcelFile(String excelFilePath) {
 
-    FileInputStream inputStream = null;
     List<StockDTO> listStock = null;
-    try {
+    try (InputStream inputStream =
+        this.getClass().getClassLoader().getResourceAsStream(excelFilePath)) {
       logger.info("Loading Exchange File");
       listStock = new ArrayList<>();
-
-      File myFile = new File(excelFilePath);
-      System.out.println("Attempting to read from file in: " + myFile.getCanonicalPath());
-
-      inputStream = new FileInputStream(new File(excelFilePath));
 
       Workbook workbook = new XSSFWorkbook(inputStream);
       Sheet firstSheet = workbook.getSheetAt(0);
@@ -128,14 +123,7 @@ public class LoadExchangeData {
       }
 
     } catch (IOException e) {
-      e.printStackTrace();
-    } finally {
-      try {
-        inputStream.close();
-      } catch (IOException e) {
-        logger.info("Exception while reading the exchange file");
-        e.printStackTrace();
-      }
+      logger.error(e);
     }
     return listStock;
   }
@@ -154,8 +142,9 @@ public class LoadExchangeData {
 
       case Cell.CELL_TYPE_NUMERIC:
         return cell.getNumericCellValue();
-    }
 
-    return null;
+      default:
+        return null;
+    }
   }
 }
