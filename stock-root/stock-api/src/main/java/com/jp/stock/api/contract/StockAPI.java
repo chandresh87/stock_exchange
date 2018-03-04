@@ -10,11 +10,13 @@ import org.springframework.http.ResponseEntity;
 public interface StockAPI {
 
   /**
-   * RESTful API endpoint to trigger snapshot calculation.
+   * RESTful API endpoint to trigger Dividend calculation.
    *
-   * @param nino the nino
+   * @param stockSymbol The unique symbol for stock
+   * @param marketPrice Market price
+   * @return ResponseEntity wrapper containing HTTP status code and calculated dividend
    */
-  @ApiOperation(value = "Trigger snapshot calculation")
+  @ApiOperation(value = "calculate the dividend yield")
   @ApiResponses(
     value = {
       @ApiResponse(code = 200, message = "Success"),
@@ -26,9 +28,58 @@ public interface StockAPI {
   )
   ResponseEntity<Message> getDividend(String stockSymbol, BigDecimal marketPrice);
 
+  /**
+   * RESTful API endpoint to trigger PE Ration calculation.
+   *
+   * @param stockSymbol The unique symbol for stock
+   * @param marketPrice Market price
+   * @return ResponseEntity wrapper containing HTTP status code and calculated PE Ration
+   */
+  @ApiOperation(value = "calculate the P/E Ratio")
+  @ApiResponses(
+    value = {
+      @ApiResponse(code = 200, message = "Success"),
+      @ApiResponse(code = 400, message = "BAD_REQUEST"),
+      @ApiResponse(code = 401, message = "Request was not authorised"),
+      @ApiResponse(code = 404, message = "NOT_FOUND"),
+      @ApiResponse(code = 500, message = "Syetem is currently experiencing problems.")
+    }
+  )
   ResponseEntity<Message> getPERation(String stockSymbol, BigDecimal marketPrice);
 
+  /**
+   * RESTful API endpoint to save trade.
+   *
+   * @param tradeModel Trade record
+   * @return ResponseEntity wrapper containing HTTP status code and success message
+   */
+  @ApiOperation(value = "Record a trade")
+  @ApiResponses(
+    value = {
+      @ApiResponse(code = 201, message = "saved succesfully"),
+      @ApiResponse(code = 400, message = "BAD_REQUEST"),
+      @ApiResponse(code = 401, message = "Request was not authorised"),
+      @ApiResponse(code = 500, message = "Syetem is currently experiencing problems.")
+    }
+  )
   ResponseEntity<String> saveTrade(TradeModel tradeModel);
 
-  ResponseEntity<Message> getPERation(String stockSymbol);
+  /**
+   * RESTful API endpoint to trigger volume weighted stock price calculation.
+   *
+   * @param stockSymbol The unique symbol for stock
+   * @return ResponseEntity wrapper containing HTTP status code and calculated Volume Weighted Stock
+   *     Price
+   */
+  @ApiOperation(value = "Calculate Volume Weighted Stock Price")
+  @ApiResponses(
+    value = {
+      @ApiResponse(code = 200, message = "Success"),
+      @ApiResponse(code = 400, message = "BAD_REQUEST"),
+      @ApiResponse(code = 401, message = "Request was not authorised"),
+      @ApiResponse(code = 404, message = "NOT_FOUND"),
+      @ApiResponse(code = 500, message = "Syetem is currently experiencing problems.")
+    }
+  )
+  ResponseEntity<Message> getVolumeWeightedStockPrice(String stockSymbol);
 }

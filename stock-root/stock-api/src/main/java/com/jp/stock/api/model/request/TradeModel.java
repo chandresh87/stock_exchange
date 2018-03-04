@@ -7,7 +7,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import lombok.ToString;
 
 /**
@@ -25,7 +24,7 @@ public class TradeModel {
 
   /** The quantify of share. */
   @ApiModelProperty(value = "The quantify of share", example = "110", required = true)
-  @Pattern(regexp = "^[\\d]*[\\.]?[\\d]*$", message = StockAPIConstant.INVALID_NUMBER)
+  // @Pattern(regexp = "^[\\d]*[\\.]?[\\d]*$", message = StockAPIConstant.INVALID_NUMBER)
   @JsonProperty(value = "stock_quantity")
   private BigInteger quantity;
 
@@ -41,7 +40,7 @@ public class TradeModel {
 
   /** The trade price. */
   @ApiModelProperty(value = "The trade price", example = "123.00", required = true)
-  @Pattern(regexp = "^[\\d]*[\\.]?[\\d]*$", message = StockAPIConstant.INVALID_NUMBER)
+  //@Pattern(regexp = "^[\\d]*[\\.]?[\\d]*$", message = StockAPIConstant.INVALID_NUMBER)
   @JsonProperty(value = "trade_price")
   private BigDecimal price;
 

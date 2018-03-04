@@ -2,6 +2,7 @@
 package com.jp.stock.dao;
 
 import com.jp.stock.entity.UniqueSequence;
+import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,5 +20,5 @@ public interface UniqueSequenceDao extends CrudRepository<UniqueSequence, Intege
   public UniqueSequence save(UniqueSequence sequence);
 
   /** Get Unique Sequence record for a given key from gemfire region */
-  public UniqueSequence findOne(Integer id);
+  public Optional<UniqueSequence> findById(Integer id);
 }

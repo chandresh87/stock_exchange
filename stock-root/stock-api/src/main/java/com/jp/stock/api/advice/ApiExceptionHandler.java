@@ -100,7 +100,15 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
   @ExceptionHandler(value = {Exception.class})
   protected ResponseEntity<Object> genericException(Exception ex, WebRequest webRequest) {
     logger.error(ex);
-    String responseBody = "Something went wrong. Please try after sometime";
-    return new ResponseEntity<>(new ErrorMessage(responseBody), HttpStatus.INTERNAL_SERVER_ERROR);
+
+    if (null != ex.getCause()) {
+      List<String> errors = new ArrayList<>();
+      errors.add(ex.getCause().getMessage());
+      return new ResponseEntity<>(
+          new ErrorMessage(ex.getMessage(), errors), HttpStatus.INTERNAL_SERVER_ERROR);
+    } else {
+      String responseBody = "Something went wrong. Please try after sometime";
+      return new ResponseEntity<>(new ErrorMessage(responseBody), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 }

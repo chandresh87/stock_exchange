@@ -2,6 +2,7 @@
 package com.jp.stock.dao;
 
 import com.jp.stock.entity.Stock;
+import java.util.Optional;
 import org.springframework.data.gemfire.repository.query.annotation.Trace;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -20,5 +21,5 @@ public interface StockDao extends CrudRepository<Stock, String> {
 
   /** Finds the record with the given stock symbol/Key */
   @Trace
-  public Stock findOne(String symbol);
+  public Optional<Stock> findById(String symbol);
 }

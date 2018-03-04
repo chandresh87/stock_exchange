@@ -1,12 +1,10 @@
 /** */
 package com.jp.stock.service.config;
 
+import com.jp.stock.service.factory.SimpleStockFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-
-import com.jp.stock.service.factory.SimpleStockFactory;
 
 /**
  * configuration for service
@@ -20,14 +18,13 @@ import com.jp.stock.service.factory.SimpleStockFactory;
 public class ServiceConfig {
 
   // bean used to for getting the values from the property file
-  @Bean
-  public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-    return new PropertySourcesPlaceholderConfigurer();
-  }
-  
-  
+  //  @Bean
+  //  public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+  //    return new PropertySourcesPlaceholderConfigurer();
+  //  }
+
   @Bean(name = "SimpleStockFactory")
   public SimpleStockFactory stockFactory() {
-	  return SimpleStockFactory.getInstance();
+    return SimpleStockFactory.getInstance();
   }
 }

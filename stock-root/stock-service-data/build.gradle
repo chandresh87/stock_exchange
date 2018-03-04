@@ -1,8 +1,21 @@
-
 sourceSets.main.java.srcDir new File("${buildDir}/generated/source/apt/main")
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	   maven { url "https://repo.spring.io/libs-release" }
+	}
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+		
+		
+	}
+}
 
 
-repositories {
+/*repositories {
     maven  {
         url "http://repo.spring.io/libs-snapshot"
     }
@@ -10,7 +23,26 @@ repositories {
      maven  {
         url "http://dist.gemstone.com/maven/release"
     }
+}*/
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-release" }
 }
+
+apply plugin: 'io.spring.dependency-management'
+dependencyManagement {
+	imports {
+		mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+	}
+}
+apply plugin: 'java'
+//apply plugin: 'eclipse'
+//apply plugin: 'org.springframework.boot'
+
+
+
+
+
 dependencies {
 
 	compile project(':stock-app')
@@ -18,9 +50,11 @@ dependencies {
 	apt 'org.mapstruct:mapstruct-processor'
 	
 	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-gemfire
-compile group: 'org.springframework.data', name: 'spring-data-gemfire', version: '1.9.10.RELEASE'
+//compile group: 'org.springframework.data', name: 'spring-data-gemfire', version: '1.9.10.RELEASE'
 // https://mvnrepository.com/artifact/com.gemstone.gemfire/gemfire
-compile group: 'com.gemstone.gemfire', name: 'gemfire', version: '8.2.8'
+//compile group: 'com.gemstone.gemfire', name: 'gemfire', version: '8.2.8'
+	
+	 compile("org.springframework.data:spring-data-gemfire")
 	
 	//compile('org.springframework.data:spring-boot-starter-data-gemfire')
 	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
@@ -28,6 +62,7 @@ compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 	compile "org.apache.poi:poi-ooxml:3.9"
 	}
 	
+ jar.enabled = true 	
 jar {
 	manifest {
 		attributes('BaseName': 'stock-service-data', 'Version': version)

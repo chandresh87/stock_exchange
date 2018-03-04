@@ -4,7 +4,6 @@ package com.jp.stock.service.factory;
 import com.jp.stock.service.StockService;
 import com.jp.stock.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * Factory of the services in the Simple Stock application.
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
  *
  * @author chandresh.mishra
  */
-
 public class SimpleStockFactory {
 
   /** Load the spring context for the Application */

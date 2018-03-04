@@ -30,7 +30,7 @@
            <appender-ref ref="console" level="info" />
         </logger>
         
-		<Root level="debug" additivity="false">
+		<Root level="info" additivity="false">
 			<appender-ref ref="fileLogger" />
 		</Root>
 		

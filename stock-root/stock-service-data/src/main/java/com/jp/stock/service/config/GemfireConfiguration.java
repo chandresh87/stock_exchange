@@ -1,13 +1,12 @@
 /** */
 package com.jp.stock.service.config;
 
-import com.gemstone.gemfire.cache.GemFireCache;
 import com.jp.stock.entity.Stock;
-import java.util.Properties;
-import org.springframework.context.annotation.Bean;
+import com.jp.stock.entity.Trade;
+import org.apache.geode.cache.client.ClientRegionShortcut;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.gemfire.CacheFactoryBean;
-import org.springframework.data.gemfire.LocalRegionFactoryBean;
+import org.springframework.data.gemfire.config.annotation.ClientCacheApplication;
+import org.springframework.data.gemfire.config.annotation.EnableEntityDefinedRegions;
 import org.springframework.data.gemfire.repository.config.EnableGemfireRepositories;
 
 /**
@@ -17,26 +16,31 @@ import org.springframework.data.gemfire.repository.config.EnableGemfireRepositor
  */
 @Configuration
 @EnableGemfireRepositories(basePackages = "com.jp.stock.dao")
+@ClientCacheApplication(name = "StockDataGemFire", logLevel = "trace")
+@EnableEntityDefinedRegions(
+  basePackageClasses = {Stock.class, Trade.class},
+  clientRegionShortcut = ClientRegionShortcut.LOCAL
+)
 public class GemfireConfiguration {
 
-  @Bean
+  /* @Bean
   Properties gemfireProperties() {
     Properties gemfireProperties = new Properties();
     gemfireProperties.setProperty("name", "SpringDataGemFireApplication");
     gemfireProperties.setProperty("mcast-port", "0");
     gemfireProperties.setProperty("log-level", "config");
     return gemfireProperties;
-  }
+  }*/
 
-  @Bean
+  /*  @Bean
   CacheFactoryBean gemfireCache() {
     CacheFactoryBean gemfireCache = new CacheFactoryBean();
     gemfireCache.setClose(true);
     gemfireCache.setProperties(gemfireProperties());
     return gemfireCache;
-  }
+  }*/
 
-  @Bean(name = "Stock")
+  /*@Bean(name = "Stock")
   LocalRegionFactoryBean<String, Stock> getStock(final GemFireCache cache) {
     LocalRegionFactoryBean<String, Stock> stockRegion = new LocalRegionFactoryBean();
 
@@ -62,5 +66,5 @@ public class GemfireConfiguration {
     uniqueSequenceRegion.setCache(cache);
     uniqueSequenceRegion.setName("UniqueSequence");
     return uniqueSequenceRegion;
-  }
+  }*/
 }

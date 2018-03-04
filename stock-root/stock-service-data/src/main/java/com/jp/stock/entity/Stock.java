@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.gemfire.mapping.Region;
+import org.springframework.data.gemfire.mapping.annotation.Region;
 
 /**
  * Stock class to hold the stock data in Gemfire.

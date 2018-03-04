@@ -20,15 +20,18 @@ public class SequenceGenerator {
   /** @return int The unique sequence starting from 1 */
   public int getUniqueSequence() {
 
-    UniqueSequence currentSequence = uniqueSequenceDao.findOne(1);
-    if (currentSequence == null) {
-      uniqueSequenceDao.save(new UniqueSequence(1, 1));
-      return 1;
-    }
+    UniqueSequence currentSequence = uniqueSequenceDao.findById(1).orElseGet(() -> buildSequence());
+
     int value = currentSequence.getValue();
     currentSequence.setValue(value + 1);
 
     uniqueSequenceDao.save(currentSequence);
-    return value + 1;
+    return value;
+  }
+
+  UniqueSequence buildSequence() {
+    UniqueSequence sequence = new UniqueSequence(1, 1);
+    uniqueSequenceDao.save(sequence);
+    return sequence;
   }
 }

@@ -52,7 +52,7 @@ public class TradeBO {
     private BigDecimal price;
     private LocalDateTime timestamp;
 
-    TradeBOBuilder() {}
+    public TradeBOBuilder() {}
 
     /**
      * Set stockSymbol

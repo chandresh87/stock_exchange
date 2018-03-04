@@ -34,7 +34,7 @@ import org.springframework.stereotype.Component;
  * @author chandresh.mishra
  */
 @Component
-@PropertySource("com/jp/stock/exchangeData/StockExchange.properties")
+@PropertySource("classpath:/com/jp/stock/exchangeData/StockExchange.properties")
 public class LoadExchangeData {
 
   private static final Logger logger = LogManager.getLogger();

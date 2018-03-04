@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/stock")
 public class StockController implements StockAPI {
 
-	@Autowired  private SimpleStockFactory simpleStockFactory;
+  @Autowired private SimpleStockFactory simpleStockFactory;
 
   @Autowired private RequestModelMapper modelMapper;
 
@@ -40,7 +40,7 @@ public class StockController implements StockAPI {
         simpleStockFactory.getStockService().getDividendYield(stockSymbol, marketPrice);
     Message message = new Message();
     message.setResult(dividend);
-    message.setResponseMessgae("Dividend for the Stock" + stockSymbol);
+    message.setResponseMessgae("Dividend for the Stock :" + stockSymbol);
 
     return new ResponseEntity<>(message, HttpStatus.OK);
   }
@@ -56,7 +56,7 @@ public class StockController implements StockAPI {
     BigDecimal ratio = simpleStockFactory.getStockService().getPERatio(stockSymbol, marketPrice);
     Message message = new Message();
     message.setResult(ratio);
-    message.setResponseMessgae("PE Ratio for the Stock" + stockSymbol);
+    message.setResponseMessgae("PE Ratio for the Stock :" + stockSymbol);
 
     return new ResponseEntity<>(message, HttpStatus.OK);
   }
@@ -72,7 +72,6 @@ public class StockController implements StockAPI {
   )
   public ResponseEntity<String> saveTrade(@Valid @RequestBody TradeModel tradeModel) {
     simpleStockFactory.getStockService().recordTrade(modelMapper.tradeModelToTradeBO(tradeModel));
-    ;
 
     return new ResponseEntity<>("saved succesfully", HttpStatus.CREATED);
   }
@@ -82,13 +81,13 @@ public class StockController implements StockAPI {
    */
   @Override
   @GetMapping(path = "/volumeWeightedPrice", produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<Message> getPERation(
+  public ResponseEntity<Message> getVolumeWeightedStockPrice(
       @RequestParam(value = "stock", required = true) String stockSymbol) {
     BigDecimal volume =
         simpleStockFactory.getStockService().getVolumeWeightedStockPrice(stockSymbol);
     Message message = new Message();
     message.setResult(volume);
-    message.setResponseMessgae("Volume Weighted Stock Price for the Stock" + stockSymbol);
+    message.setResponseMessgae("Volume Weighted Stock Price for the Stock :" + stockSymbol);
 
     return new ResponseEntity<>(message, HttpStatus.OK);
   }

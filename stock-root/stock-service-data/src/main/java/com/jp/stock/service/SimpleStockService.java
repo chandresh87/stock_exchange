@@ -108,9 +108,7 @@ public class SimpleStockService implements StockService {
                     BusinessErrorCode.JP003B.getDescription(),
                     new Throwable(StockServiceConstants.ILLEGAL_VALUE_OF_DIVIDEND + symbol)));
 
-    BigDecimal peRatio = BigDecimal.ZERO;
-
-    peRatio = price.divide(dividend, PRECISION_SCALE, BigDecimal.ROUND_HALF_EVEN);
+    BigDecimal peRatio = price.divide(dividend, PRECISION_SCALE, BigDecimal.ROUND_HALF_EVEN);
     return peRatio.setScale(3, BigDecimal.ROUND_HALF_EVEN);
   }
 
@@ -169,7 +167,8 @@ public class SimpleStockService implements StockService {
 
     // Fetching all the trade with given Stock Symbol from trade region in
     // Gemfire
-    List<Trade> tradeList = tradeDao.findAllTradeForStock(symbol);
+    List<Trade> tradeList =
+        tradeDao.getTradeCollectionByTime(symbol, LocalDateTime.now().minusMinutes(15));
 
     // Throws exception in case No Trade record found for the Stock
     if (tradeList.isEmpty())
@@ -195,17 +194,19 @@ public class SimpleStockService implements StockService {
     BigDecimal priceSum = BigDecimal.ZERO;
     BigInteger quantitySum = BigInteger.ZERO;
 
-    tradeBOList.forEach(
-        record -> {
-          BigDecimal price = record.getPrice();
-          StockService.checkPositive(price);
-          BigDecimal quatity = new BigDecimal(record.getQuantity());
-          StockService.checkPositive(quatity);
+    // tradeBOList.parallelStream().reduce( record -> {  BigDecimal price = record.getPrice();   BigDecimal quatity = new BigDecimal(record.getQuantity());
 
-          priceSum.add(price.multiply(quatity));
+    // })
+    for (TradeBO record : tradeBOList) {
+      BigDecimal price = record.getPrice();
+      StockService.checkPositive(price);
+      BigDecimal quatity = new BigDecimal(record.getQuantity());
+      StockService.checkPositive(quatity);
 
-          quantitySum.add(record.getQuantity());
-        });
+      priceSum = priceSum.add(price.multiply(quatity));
+
+      quantitySum = quantitySum.add(record.getQuantity());
+    }
 
     volumeWeightedStockPrice = priceSum.divide(new BigDecimal(quantitySum), PRECISION_SCALE, 3);
     return volumeWeightedStockPrice.setScale(0, BigDecimal.ROUND_HALF_EVEN);
@@ -220,7 +221,8 @@ public class SimpleStockService implements StockService {
    */
   private Stock getValidStock(String stockSymbol) {
 
-    return Optional.ofNullable(stockDao.findOne(stockSymbol))
+    return stockDao
+        .findById(stockSymbol)
         .orElseThrow(
             () ->
                 new StockMarketServiceException(
@@ -267,6 +269,7 @@ public class SimpleStockService implements StockService {
   @Override
   public void saveStockCollection(List<StockBO> stockBOList) {
 
-    stockDao.save(stockMapper.stockBOListTOStockList(stockBOList));
+    stockDao.saveAll(stockMapper.stockBOListTOStockList(stockBOList));
+    //stockDao.save(stockMapper.stockBOListTOStockList(stockBOList));
   }
 }

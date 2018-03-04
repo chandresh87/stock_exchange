@@ -20,8 +20,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class SimpleTradeService implements TradeService {
 
-  private static final int PRECISION_SCALE = 7;
-
   /** Autowired Trade database service */
   @Autowired TradeDao tradeDao;
 
@@ -50,41 +48,14 @@ public class SimpleTradeService implements TradeService {
 
     List<TradeBO> tradeBOList = tradeMapper.tradeListToTradeBOList(tradeCollection);
 
-    tradeCollection = null;
-
-    BigDecimal accumulate = BigDecimal.ONE;
-
-    accumulate =
+    double accumulate =
         tradeBOList
             .parallelStream()
-            .map(tradeRecord -> tradeRecord.getPrice())
-            .reduce(BigDecimal.ONE, BigDecimal::multiply);
+            .map(tradeRecord -> tradeRecord.getPrice().doubleValue())
+            .reduce(1.0, (x, y) -> x * y);
 
-    /*for (Trade tradeRecord : tradeCollection) {
+    double geometricMean = Math.pow(accumulate, (double) (1.0 / tradeBOList.size()));
 
-    	BigDecimal price = tradeRecord.getPrice();
-    	checkPositive(price);
-    	accumulate = accumulate.multiply(price);
-    	price = null;
-    }*/
-
-    int n = tradeCollection.size();
-    BigDecimal x = accumulate.divide(accumulate, BigDecimal.ROUND_HALF_EVEN);
-    BigDecimal temp = BigDecimal.ZERO;
-    BigDecimal e = new BigDecimal("0.1");
-
-    do {
-      temp = x;
-      x =
-          x.add(
-              accumulate
-                  .subtract(x.pow(n))
-                  .divide(
-                      new BigDecimal(n).multiply(x.pow(n - 1)),
-                      PRECISION_SCALE,
-                      BigDecimal.ROUND_HALF_EVEN));
-    } while (x.subtract(temp).abs().compareTo(e) > 0);
-
-    return x.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+    return new BigDecimal(geometricMean).setScale(0, BigDecimal.ROUND_HALF_EVEN);
   }
 }

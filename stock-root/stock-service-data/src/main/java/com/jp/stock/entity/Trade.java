@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.gemfire.mapping.Region;
+import org.springframework.data.gemfire.mapping.annotation.Region;
 
 /**
  * A entity class for trade record containing the trade information, like stock , time stamp,
@@ -28,13 +28,13 @@ public class Trade implements Serializable {
   private static final long serialVersionUID = 3209342518270638001L;
 
   /** The trade identifier used as key in trade region */
-  @Id private int tradeIdentifier;
+  @Id private Integer tradeIdentifier;
 
   /** The stock */
   private Stock stock;
 
   /** The time stamp of this trade. */
-  private LocalDateTime timestamp;
+  private LocalDateTime tradeTimestamp;
 
   /** The quantify of this trade. */
   private BigInteger quantity;
@@ -66,7 +66,7 @@ public class Trade implements Serializable {
 
     this.tradeIdentifier = tradeIdentifier;
     this.stock = stock;
-    this.timestamp = timestamp;
+    this.tradeTimestamp = timestamp;
     this.quantity = quantity;
     this.indicator = indicator;
     this.price = price;
@@ -74,13 +74,37 @@ public class Trade implements Serializable {
 
   public Trade() {}
 
-  
-  
-  public int getTradeIdentifier() {
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((stock == null) ? 0 : stock.hashCode());
+    result = prime * result + ((tradeTimestamp == null) ? 0 : tradeTimestamp.hashCode());
+    result = prime * result + tradeIdentifier;
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null) return false;
+    if (!(obj instanceof Trade)) return false;
+    Trade other = (Trade) obj;
+    if (stock == null) {
+      if (other.stock != null) return false;
+    } else if (!stock.equals(other.stock)) return false;
+    if (tradeTimestamp == null) {
+      if (other.tradeTimestamp != null) return false;
+    } else if (!tradeTimestamp.equals(other.tradeTimestamp)) return false;
+    if (tradeIdentifier != other.tradeIdentifier) return false;
+    return true;
+  }
+
+  public Integer getTradeIdentifier() {
     return tradeIdentifier;
   }
 
-  public void setTradeIdentifier(int tradeIdentifier) {
+  public void setTradeIdentifier(Integer tradeIdentifier) {
     this.tradeIdentifier = tradeIdentifier;
   }
 
@@ -92,12 +116,12 @@ public class Trade implements Serializable {
     this.stock = stock;
   }
 
-  public LocalDateTime getTimestamp() {
-    return timestamp;
+  public LocalDateTime getTradeTimestamp() {
+    return tradeTimestamp;
   }
 
-  public void setTimestamp(LocalDateTime timestamp) {
-    this.timestamp = timestamp;
+  public void setTradeTimestamp(LocalDateTime tradeTimestamp) {
+    this.tradeTimestamp = tradeTimestamp;
   }
 
   public BigInteger getQuantity() {
@@ -123,38 +147,4 @@ public class Trade implements Serializable {
   public void setPrice(BigDecimal price) {
     this.price = price;
   }
-
-@Override
-public int hashCode() {
-	final int prime = 31;
-	int result = 1;
-	result = prime * result + ((stock == null) ? 0 : stock.hashCode());
-	result = prime * result + ((timestamp == null) ? 0 : timestamp.hashCode());
-	result = prime * result + tradeIdentifier;
-	return result;
-}
-
-@Override
-public boolean equals(Object obj) {
-	if (this == obj)
-		return true;
-	if (obj == null)
-		return false;
-	if (!(obj instanceof Trade))
-		return false;
-	Trade other = (Trade) obj;
-	if (stock == null) {
-		if (other.stock != null)
-			return false;
-	} else if (!stock.equals(other.stock))
-		return false;
-	if (timestamp == null) {
-		if (other.timestamp != null)
-			return false;
-	} else if (!timestamp.equals(other.timestamp))
-		return false;
-	if (tradeIdentifier != other.tradeIdentifier)
-		return false;
-	return true;
-}
 }

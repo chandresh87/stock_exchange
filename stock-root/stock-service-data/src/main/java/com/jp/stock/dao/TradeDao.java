@@ -2,9 +2,11 @@
 package com.jp.stock.dao;
 
 import com.jp.stock.entity.Trade;
+import java.time.LocalDateTime;
 import java.util.List;
-import org.springframework.data.gemfire.repository.Query;
+import org.springframework.data.gemfire.repository.query.annotation.Trace;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,14 +18,21 @@ import org.springframework.stereotype.Repository;
 public interface TradeDao extends CrudRepository<Trade, Integer> {
 
   /** Saves Trade record in gemfire region */
+  @SuppressWarnings("unchecked")
   public Trade save(Trade trade);
 
   /**
    * Get the all the trade record for a given stock symbol in last 15 min from gemfire Trade region
    */
-  @Query("SELECT * FROM /Trade T WHERE T.stock.symbol =$1 ORDER BY T.timestamp desc LIMIT 15")
-  public List<Trade> findAllTradeForStock(String stock);
+  @Trace
+  public List<Trade> findByStockSymbolAndTradeTimestampGreaterThanEqual(
+      @Param("symbol") String stock, @Param("tradeTimestamp") LocalDateTime dateTime);
 
   /** Get all the trade from the Trade region */
+  @Trace
   public List<Trade> findAll();
+
+  default List<Trade> getTradeCollectionByTime(String stock, LocalDateTime dateTime) {
+    return findByStockSymbolAndTradeTimestampGreaterThanEqual(stock, dateTime);
+  }
 }

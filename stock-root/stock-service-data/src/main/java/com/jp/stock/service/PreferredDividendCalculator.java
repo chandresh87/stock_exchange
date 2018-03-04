@@ -17,6 +17,7 @@ public class PreferredDividendCalculator implements DividendCalculator {
     return stock
         .getFixedDividend()
         .multiply(stock.getParValue())
-        .divide(price, PRECISION_SCALE, BigDecimal.ROUND_HALF_EVEN);
+        .divide(price, PRECISION_SCALE, BigDecimal.ROUND_HALF_EVEN)
+        .divide(new BigDecimal(100));
   }
 }

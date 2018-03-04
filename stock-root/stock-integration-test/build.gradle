@@ -1,2 +1,77 @@
+buildscript {
+	repositories {
+   mavenCentral()
+	}
+    dependencies {
+		classpath('org.unbroken-dome.gradle-plugins:gradle-testsets-plugin:1.2.0')
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+	}
+}
 
-description = ''
+plugins {
+	id 'org.unbroken-dome.test-sets' version '1.2.0'
+}
+
+apply plugin: 'io.spring.dependency-management'
+dependencyManagement {
+	imports {
+		mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+	}
+}
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-release" }
+}
+
+testSets {
+	integrationTest { dirName = 'integration-test' }
+}
+
+tasks.withType(Test) {
+    reports.html.destination = file('reporting.baseDir/stock')
+}
+
+check.dependsOn integrationTest
+integrationTest.mustRunAfter test
+
+dependencies {
+	compile project(':stock-api'), project(':stock-service-data')
+	
+	compile 'org.springframework.boot:spring-boot-starter-test'
+	//compile 'com.github.tomakehurst:wiremock-standalone:2.6.0'
+
+	//testCompile 'com.h2database:h2:1.4.195'
+
+  compile("org.springframework.data:spring-data-gemfire")
+  compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.10.0'
+compile group: 'org.apache.logging.log4j', name: 'log4j-jcl', version: '2.10.0'
+  testCompile  'com.jayway.jsonpath:json-path:2.0.0'
+  testCompile 'org.skyscreamer:jsonassert'
+
+}
+
+integrationTest {
+	scanForTestClasses = true
+	include '**/*'
+	ignoreFailures = false
+	reports {
+		junitXml.enabled = true
+		html.enabled = false
+	}
+}
+
+project.integrationTest {
+    outputs.upToDateWhen { false }
+}
+
+configurations {
+	compile.exclude module: 'spring-boot-starter-logging'
+}
+
+jar {
+	manifest {
+		attributes('BaseName': 'stock-forecast-integration-test', 'Version': version)
+	}
+}

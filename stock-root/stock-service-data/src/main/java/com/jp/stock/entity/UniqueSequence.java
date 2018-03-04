@@ -5,7 +5,7 @@ import java.io.Serializable;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.gemfire.mapping.Region;
+import org.springframework.data.gemfire.mapping.annotation.Region;
 
 /**
  * This class holds the unique sequence data for the UniqueSequence Gemfire region. The unique value
@@ -19,30 +19,30 @@ public class UniqueSequence implements Serializable {
 
   private static final long serialVersionUID = 3209342518270638003L;
 
-  @Id int id;
+  @Id Integer id;
 
-  int value;
+  Integer value;
 
   @PersistenceConstructor
-  public UniqueSequence(int id, int value) {
+  public UniqueSequence(Integer id, Integer value) {
     super();
     this.id = id;
     this.value = value;
   }
 
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
-  public int getValue() {
+  public Integer getValue() {
     return value;
   }
 
-  public void setValue(int value) {
+  public void setValue(Integer value) {
     this.value = value;
   }
 }

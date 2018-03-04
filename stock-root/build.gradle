@@ -1,12 +1,12 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.10.RELEASE'
+		springBootVersion = '2.0.0.RELEASE'
 	}
 	repositories {
 		mavenCentral()
 	}
 	dependencies {
-		classpath 'io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE'
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
 		
 	}
 }
@@ -59,7 +59,7 @@ subprojects {
    
     dependencies {
          testCompile 'org.mockito:mockito-core:2.7.22'
-        testCompile 'org.springframework.boot:spring-boot-starter-test'
+         testCompile 'org.springframework.boot:spring-boot-starter-test'
 		 testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
 		compile 'org.mapstruct:mapstruct-jdk8:1.1.0.Final'
 	    apt 'org.mapstruct:mapstruct-processor:1.1.0.Final'

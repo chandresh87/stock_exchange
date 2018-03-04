@@ -54,7 +54,7 @@ public class StockBO {
     private StockType stockType;
     private BigDecimal fixedDividend;
 
-    StockBOBuilder() {}
+    public StockBOBuilder() {}
 
     /**
      * Set stockSymbol
@@ -117,7 +117,7 @@ public class StockBO {
      * @param stockfixedDividend fixedDividend of stock
      * @return StockBOBuilder
      */
-    public StockBOBuilder stockType(BigDecimal fixedDividend) {
+    public StockBOBuilder fixedDividend(BigDecimal fixedDividend) {
       this.fixedDividend = fixedDividend;
       return this;
     }
