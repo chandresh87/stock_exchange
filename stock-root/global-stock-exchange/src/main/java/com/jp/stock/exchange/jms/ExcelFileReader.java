@@ -1,18 +1,14 @@
 /** */
-package com.jp.stock.remote;
+package com.jp.stock.exchange.jms;
 
-import com.jp.stock.enums.StockType;
-import com.jp.stock.remote.dto.StockDTO;
-import com.jp.stock.service.StockService;
-import com.jp.stock.service.mapper.StockMapper;
-
+import com.jp.stock.exchange.jms.dto.StockDTO;
+import com.jp.stock.exchange.jms.dto.StockType;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
@@ -20,59 +16,29 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * This class loads the Stock data from the excel file received from exchange. It runs on the
- * context start up and continue to run every day at 7 o clock periodically to load the EOD files
- * into the system.
+ * It read the excel file having stock exchange data.
  *
  * @author chandresh.mishra
  */
 @Component
-@PropertySource("classpath:/com/jp/stock/exchangeData/StockExchange.properties")
-public class LoadExchangeData {
+public class ExcelFileReader {
 
   private static final Logger logger = LogManager.getLogger();
 
-  @Autowired private StockService stockQuery;
-
-  @Autowired private StockMapper stockMapper;
-
-  // Exchange file location from the property file.
-  @Value("${stock.dataFile}")
-  private String dataFile;
-
-  // Runs once on loading of context
-  @PostConstruct
-  public void onStartup() {
-
-    logger.info("Loading Stock data into System");
-    stockQuery.saveStockCollection(
-        stockMapper.stockDTOListTOStockBOList(readStockDataFromExcelFile(dataFile)));
-  }
-
-  // Runs periodically at specific time of day decided by cron expression
-  @Scheduled(cron = "${stock.cron}")
-  public void onSchedule() {
-
-    logger.info("Loading Stock data into System periodically");
-    stockQuery.saveStockCollection(
-        stockMapper.stockDTOListTOStockBOList(readStockDataFromExcelFile(dataFile)));
-  }
-
   /**
-   * Read the EOD excel file containing the Stock data It uses Apache POI to read the Excel file
+   * Read the EOD excel file containing the Stock data asynchronously .It uses Apache POI to read
+   * the Excel file
    *
    * @param excelFilePath location of EOD file
    * @return list of stock data
    */
+  // @Async("threadPoolTaskExecutor")
   public List<StockDTO> readStockDataFromExcelFile(String excelFilePath) {
 
+    logger.traceEntry();
     List<StockDTO> listStock = null;
     try (InputStream inputStream =
         this.getClass().getClassLoader().getResourceAsStream(excelFilePath)) {
@@ -125,7 +91,9 @@ public class LoadExchangeData {
     } catch (IOException e) {
       logger.error(e);
     }
+    logger.debug("Loaded stock data" + listStock.size());
     return listStock;
+    //return CompletableFuture.completedFuture(listStock);
   }
 
   /**

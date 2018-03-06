@@ -58,6 +58,13 @@ public interface StockService {
   public void saveStockCollection(List<StockBO> stockList);
 
   /**
+   * Saves the individual of Stock in Gemfire Region
+   *
+   * @param stockList List of Stock
+   */
+  public void saveStock(StockBO stock);
+
+  /**
    * calculates the dividend, depending on the type of stock.
    *
    * @param stock stock object

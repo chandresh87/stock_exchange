@@ -248,4 +248,10 @@ public class SimpleStockService implements StockService {
 
     stockDao.saveAll(stockMapper.stockBOListTOStockList(stockBOList));
   }
+
+  @Override
+  public void saveStock(StockBO stock) {
+
+    stockDao.save(stockMapper.stockBOToStock(stock));
+  }
 }

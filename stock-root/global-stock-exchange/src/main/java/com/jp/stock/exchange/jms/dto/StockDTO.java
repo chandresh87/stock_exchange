@@ -1,7 +1,7 @@
-/** */
-package com.jp.stock.remote.dto;
 
-import com.jp.stock.enums.StockType;
+package com.jp.stock.exchange.jms.dto;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -10,7 +10,9 @@ import java.math.BigDecimal;
  *
  * @author chandresh.mishra
  */
-public class StockDTO {
+public class StockDTO implements Serializable {
+
+  private static final long serialVersionUID = 1L;
 
   /** The stock symbol */
   private String stockSymbol;

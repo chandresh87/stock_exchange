@@ -4,7 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jp.stock.api.config.ApiConfig;
 import com.jp.stock.api.config.SwaggerConfig;
 import com.jp.stock.config.IntegrationTestConfig;
-import com.jp.stock.service.config.GemfireConfiguration;
+import com.jp.stock.service.config.GemfireConfig;
+import com.jp.stock.service.config.RemoteConfig;
 import com.jp.stock.service.config.ServiceConfig;
 import java.nio.charset.Charset;
 import org.junit.Assert;
@@ -31,11 +32,12 @@ import org.springframework.web.context.WebApplicationContext;
 @WebAppConfiguration
 @ContextConfiguration(
   classes = {
-    GemfireConfiguration.class,
+    GemfireConfig.class,
     ServiceConfig.class,
     ApiConfig.class,
     SwaggerConfig.class,
-    IntegrationTestConfig.class
+    IntegrationTestConfig.class,
+    RemoteConfig.class
   },
   loader = AnnotationConfigWebContextLoader.class
 )

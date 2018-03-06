@@ -1,10 +1,12 @@
 rootProject.name = 'stock-root'
 include ':stock-app'
 include ':stock-service-data'
+include ':global-stock-exchange'
 include ':stock-api'
 include ':stock-integration-test'
 
 project(':stock-api').projectDir = "$rootDir/stock-api" as File
 project(':stock-app').projectDir = "$rootDir/stock-app" as File
 project(':stock-service-data').projectDir = "$rootDir/stock-service-data" as File
+project(':global-stock-exchange').projectDir = "$rootDir/global-stock-exchange" as File
 project(':stock-integration-test').projectDir = "$rootDir/stock-integration-test" as File
