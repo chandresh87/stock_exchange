@@ -1,6 +1,7 @@
 /** */
 package com.jp.stock.service.config;
 
+import com.jp.stock.exchange.config.AsyncConfig;
 import com.jp.stock.exchange.config.ExchangeServiceConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -11,5 +12,5 @@ import org.springframework.context.annotation.Import;
  * @author chandresh.mishra
  */
 @Configuration
-@Import({ExchangeServiceConfig.class})
+@Import({ExchangeServiceConfig.class, AsyncConfig.class})
 public class RemoteConfig {}

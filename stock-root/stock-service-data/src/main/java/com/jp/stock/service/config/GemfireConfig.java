@@ -16,7 +16,7 @@ import org.springframework.data.gemfire.repository.config.EnableGemfireRepositor
  */
 @Configuration
 @EnableGemfireRepositories(basePackages = "com.jp.stock.dao")
-@ClientCacheApplication(name = "StockDataGemFire", logLevel = "OFF")
+@ClientCacheApplication(name = "StockDataGemFire", logLevel = "ERROR")
 @EnableEntityDefinedRegions(
   basePackageClasses = {Stock.class, Trade.class},
   clientRegionShortcut = ClientRegionShortcut.LOCAL

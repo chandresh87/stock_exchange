@@ -1,7 +1,7 @@
 package com.jp.stock.exchange.jms.dto;
 
 /**
- * Enum for the stock type available in the Simple Stocks application.
+ * Enum for the stock type.
  *
  * @author chandresh.mishra
  */

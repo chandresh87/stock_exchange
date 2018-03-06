@@ -9,7 +9,6 @@ import com.jp.stock.service.config.ServiceConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
-import org.springframework.jms.annotation.EnableJms;
 
 /**
  * Main Configuration Class.
@@ -27,7 +26,6 @@ import org.springframework.jms.annotation.EnableJms;
   }
 )
 @SpringBootApplication
-@EnableJms
 public class StockExchangeServiceApplication {
 
   public static void main(String[] args) {

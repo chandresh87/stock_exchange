@@ -23,9 +23,6 @@ public class QueueSender {
 
   public void send(List<StockDTO> stockList) {
     logger.info("sending data to the stock queue " + stockList);
-    //StockDTO dto = stockList.get(0);
-    //jmsTemplate.convertAndSend(STOCK_QUEUE, dto);
-    //stockList.forEach(stock -> jmsTemplate.convertAndSend(STOCK_QUEUE, stock));
     jmsTemplate.convertAndSend(STOCK_QUEUE, new CustomList(stockList));
   }
 }

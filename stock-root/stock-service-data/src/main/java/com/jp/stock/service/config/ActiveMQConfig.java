@@ -1,9 +1,5 @@
 package com.jp.stock.service.config;
 
-import com.jp.stock.exchange.jms.dto.StockDTO;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import javax.jms.ConnectionFactory;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.context.annotation.Bean;
@@ -38,14 +34,6 @@ public class ActiveMQConfig {
   @Bean
   public MessageConverter messageConverter() {
     MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
-
-    converter.setTypeIdPropertyName("stock.queue.json.classname");
-    //now set idMappings for serialization/deserialization
-    Map<String, Class<?>> idMapping = new HashMap<>();
-    idMapping.put(StockDTO.class.getName(), StockDTO.class);
-    idMapping.put(ArrayList.class.getName(), ArrayList.class);
-    converter.setTypeIdMappings(idMapping);
-
     converter.setTargetType(MessageType.TEXT);
     converter.setTypeIdPropertyName("_type");
     return converter;
@@ -61,11 +49,9 @@ public class ActiveMQConfig {
   public JmsTemplate jmsTemplate() {
 
     JmsTemplate jmsTemplate = new JmsTemplate(connectionFactory());
-    // jmsTemplate.setDefaultDestination(destinationTopic());;
     jmsTemplate.setDefaultDestinationName(STOCK_QUEUE);
     jmsTemplate.setConnectionFactory(connectionFactory());
     jmsTemplate.setMessageConverter(messageConverter());
-    //jmsTemplate.setPubSubDomain(true);
     return jmsTemplate;
   }
 }

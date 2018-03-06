@@ -1,9 +1,10 @@
-/** */
 package com.jp.stock.exchange.jms;
 
+import com.jp.stock.exchange.exception.ExchangeException;
 import com.jp.stock.exchange.jms.dto.StockDTO;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import javax.annotation.PostConstruct;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,9 +15,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * This class loads the Stock data from the excel file and call the JMS queue sender to send the
- * data to the stock queue. It runs on the context start up and continue to run every day at 7 o
- * clock periodically to load the EOD files into the system.
+ * This class loads the Stock data and call the JMS queue sender to send the data to the stock
+ * queue. It runs on the context start up and continue to run every day at 7 o clock periodically to
+ * load the EOD files into the system.
  *
  * @author chandresh.mishra
  */
@@ -41,16 +42,19 @@ public class LoadExchangeData {
   public void onStartup() {
 
     logger.info("Loading Stock data into System");
-    //futureStockList = fileReader.readStockDataFromExcelFile(dataFile);
-
-    /*if (futureStockList.isDone()) {
-    try {*/
-    stockQueueSender.send(fileReader.readStockDataFromExcelFile(dataFile));
-    //      } catch (InterruptedException | ExecutionException e) {
-    //        logger.error(e);
-    //        throw new ExchangeException(UNABLE_TO_READ_FILE, new Throwable(UNABLE_TO_READ_FILE));
-    //      }
-    //}
+    futureStockList = fileReader.readStockDataFromExcelFile(dataFile);
+    while (true) {
+      if (futureStockList.isDone()) {
+        try {
+          // JMS queue sender
+          stockQueueSender.send(futureStockList.get());
+          break;
+        } catch (InterruptedException | ExecutionException e) {
+          logger.error(e);
+          throw new ExchangeException(UNABLE_TO_READ_FILE, new Throwable(UNABLE_TO_READ_FILE));
+        }
+      }
+    }
   }
 
   // Runs periodically at specific time of day decided by cron expression
@@ -58,15 +62,18 @@ public class LoadExchangeData {
   public void onSchedule() {
 
     logger.info("Loading Stock data into System periodically");
-    //futureStockList = fileReader.readStockDataFromExcelFile(dataFile);
-    stockQueueSender.send(fileReader.readStockDataFromExcelFile(dataFile));
-    //    if (futureStockList.isDone()) {
-    //      try {
-    //        stockQueueSender.send(futureStockList.get());
-    //      } catch (InterruptedException | ExecutionException e) {
-    //        logger.error(e);
-    //        throw new ExchangeException(UNABLE_TO_READ_FILE, new Throwable(UNABLE_TO_READ_FILE));
-    //      }
-    //    }
+    // JMS queue sender
+    futureStockList = fileReader.readStockDataFromExcelFile(dataFile);
+    while (true) {
+      if (futureStockList.isDone()) {
+        try {
+          stockQueueSender.send(futureStockList.get());
+          break;
+        } catch (InterruptedException | ExecutionException e) {
+          logger.error(e);
+          throw new ExchangeException(UNABLE_TO_READ_FILE, new Throwable(UNABLE_TO_READ_FILE));
+        }
+      }
+    }
   }
 }

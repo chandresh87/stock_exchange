@@ -1,4 +1,3 @@
-/** */
 package com.jp.stock.exchange.exception;
 
 /**

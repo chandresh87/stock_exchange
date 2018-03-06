@@ -27,7 +27,7 @@
  <Loggers>
 		
 		 <logger name="org.springframework.core.env.StandardEnvironment">
-           <appender-ref ref="console" level="info" />
+           <appender-ref ref="console" level="trace" />
         </logger>
         
 		<Root level="info" additivity="false">
@@ -35,5 +35,18 @@
 		</Root>
 		
 	</Loggers>
+	
+	<!-- <Loggers>
+
+	
+		<Logger name="org.springframework.core.env.StandardEnvironment" level="info" />
+
+		<Logger name="com.jp.stock" level="trace" />
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingRandomAccessFile" />
+		</Root>
+
+	</Loggers> -->
 
 </Configuration>

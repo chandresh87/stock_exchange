@@ -87,7 +87,7 @@ public class StockIntegrationTest extends StockBaseIntegrationTest {
         .perform(get("/trade/gbse"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-        .andExpect(jsonPath("$.result").value(99))
+        .andExpect(jsonPath("$.result").value(100))
         .andExpect(jsonPath("$.responseMessgae").value("GBCE All Share Index"));
   }
 

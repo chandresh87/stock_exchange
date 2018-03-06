@@ -1,4 +1,3 @@
-/** */
 package com.jp.stock.exchange.jms;
 
 import com.jp.stock.exchange.jms.dto.StockDTO;
@@ -9,6 +8,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
@@ -16,10 +16,11 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 /**
- * It read the excel file having stock exchange data.
+ * Asynchronously reads the excel file having stock exchange data.
  *
  * @author chandresh.mishra
  */
@@ -29,20 +30,20 @@ public class ExcelFileReader {
   private static final Logger logger = LogManager.getLogger();
 
   /**
-   * Read the EOD excel file containing the Stock data asynchronously .It uses Apache POI to read
+   * Asynchronously Read the EOD excel file containing the Stock data .It uses Apache POI to read
    * the Excel file
    *
    * @param excelFilePath location of EOD file
-   * @return list of stock data
+   * @return CompletableFuture list of stock data
    */
-  // @Async("threadPoolTaskExecutor")
-  public List<StockDTO> readStockDataFromExcelFile(String excelFilePath) {
+  @Async("threadPoolTaskExecutor")
+  public CompletableFuture<List<StockDTO>> readStockDataFromExcelFile(String excelFilePath) {
 
     logger.traceEntry();
     List<StockDTO> listStock = null;
     try (InputStream inputStream =
         this.getClass().getClassLoader().getResourceAsStream(excelFilePath)) {
-      logger.info("Loading Exchange File");
+      logger.info("Reading Exchange File");
       listStock = new ArrayList<>();
 
       Workbook workbook = new XSSFWorkbook(inputStream);
@@ -92,8 +93,7 @@ public class ExcelFileReader {
       logger.error(e);
     }
     logger.debug("Loaded stock data" + listStock.size());
-    return listStock;
-    //return CompletableFuture.completedFuture(listStock);
+    return CompletableFuture.completedFuture(listStock);
   }
 
   /**
